@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall functions for the Better Statistics module.
+ */
+
+
+/**
+ * Enable the Statistics API.
+ */
+function better_statistics_update_7100() {
+  // This doesn't need to run if the user already saved the upgrade form.
+  $already_ran = variable_get('better_statistics_fields', FALSE);
+  if (!$already_ran) {
+    // Load the admin.inc file.
+    module_load_include('inc', 'better_statistics', 'better_statistics.admin');
+
+    // Generate a fake form state as if the user chose the fields that were
+    // originally made available in 7.x-1.0.
+    $form_state['values']['better_statistics']['better_statistics']['fields'] = array(
+      'cache' => 'cache',
+      'user_agent' => 'user_agent',
+    );
+
+    // Force active store variable to be set by faking a form submission.
+    _better_statistics_settings_form_submit(NULL, $form_state);
+  }
+}
+
+
+/**
+ * Update the list of statistics files to be auto-loaded.
+ */
+function better_statistics_update_7101() {
+  // This doesn't need to run if the user already saved the upgrade form.
+  $already_ran = variable_get('better_statistics_active_incs', FALSE);
+  if (!$already_ran) {
+    // Load the admin.inc file.
+    module_load_include('inc', 'better_statistics', 'better_statistics.admin');
+
+    // Call the update field function to save off active incs.
+    // This is necessary for existing installations of this module that already
+    // use custom fields from other modules. The way their inc files was loaded
+    // was changed; this ensures they will be loaded properly.
+    _better_statistics_update_fields();
+  }
+}
+
+
+/**
+ * Implements hook_uninstall().
+ *
+ * Returns the accesslog schema to Core's declared default.
+ */
+function better_statistics_uninstall() {
+  // Get all fields that are live in the DB now.
+  $live_fields = array_keys(db_select('accesslog', 'a')
+    ->fields('a')
+    ->range(0, 1)
+    ->execute()
+    ->fetchAssoc());
+
+  // Get the declared default fields.
+  $access_schema = drupal_get_schema_unprocessed('statistics', 'accesslog');
+  $default_fields = $access_schema['fields'];
+
+  // If the live field doesn't exist in the default fields, remove it.
+  foreach ($live_fields as $field) {
+    if (!isset($default_fields[$field])) {
+      db_drop_field('accesslog', $field);
+    }
+  }
+
+  variable_del('better_statistics_fields');
+  variable_del('better_statistics_active_incs');
+  variable_del('statistics_access_log_restrictions_cache');
+  variable_del('statistics_access_log_restrictions_page');
+  variable_del('statistics_access_log_restrictions_pages');
+  variable_del('statistics_access_log_restrictions_roles');
+  variable_del('statistics_access_log_restrictions_dnt');
+  variable_del('statistics_log_to_db');
+}

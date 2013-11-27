@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Webform Reply-To module.
+ */
+
+/**
+ * Implements hook_schema_alter().
+ */
+function webform_reply_to_schema_alter(&$schema) {
+  // Add reply_to field to existing schema.
+  $schema['webform_emails']['fields']['reply_to'] = array(
+    'description' => 'The "Reply-To" e-mail address that will be used. This may be a string, the special key "default" or a numeric value. If a numeric value is used, the value of a component will be substituted on submission.',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => FALSE,
+    'default' => 'default',
+  );
+}
+
+/**
+ * Implements hook_install().
+ */
+function webform_reply_to_install() {
+  // Insert the reply_to field.
+  db_add_field('webform_emails', 'reply_to', array(
+    'description' => 'The "Reply-To" e-mail address that will be used. This may be a string, the special key "default" or a numeric value. If a numeric value is used, the value of a component will be substituted on submission.',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => FALSE,
+    'default' => 'default',
+    'initial' => 'default',
+  ));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function webform_reply_to_uninstall() {
+  // Delete variables.
+  db_query("DELETE FROM {variable} WHERE name LIKE 'webform_reply_to_%%'");
+  
+  // Drop the reply_to field.
+  db_drop_field('webform_emails', 'reply_to');
+}

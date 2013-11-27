@@ -1,0 +1,109 @@
+/* @override http://d25005.web271.webcore.ie/sites/default/files/adaptivetheme/punity_files/punity.custom.css?mdqsqb
+	http://d25005.web271.webcore.ie/sites/default/files/adaptivetheme/punity_files/punity.custom.css?mdscpk
+	http://d25005.web271.webcore.ie/sites/default/files/adaptivetheme/punity_files/punity.custom.css?mdsjl9 */
+
+/* Add any valid CSS declarations */
+
+
+
+
+/* Frontpage Boxes "Therapy" Boxes styling */
+
+#therapy-frontpage-box-global {
+    float: left;
+    width: 293px;
+    padding: 10px;
+}
+#therapy-frontpage-box-title {
+	text-align: center;
+}
+
+#therapy-frontpage-box-title a, a:visited {
+	color: #2DAAE2;
+}
+
+#therapy-frontpage-box-title a:hover, a:focus {
+	color: #662583;
+}
+
+#therapy-frontpage-box-link {
+	   text-align: center;
+	   background-color: #2DAAE2;
+	   -moz-box-shadow: 3px 3px 4px rgba(102, 37, 131, 0.71);
+	   -webkit-box-shadow: 3px 3px 4px rgba(102, 37, 131, 0.71);
+	   box-shadow: 3px 3px 4px rgba(102, 37, 131, 0.71);
+	   opacity: 1;
+	   -webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	   border-radius: 5px;
+	   width: 50%;
+	   margin: auto;
+	   padding: 10px 5px;
+   }
+
+#therapy-frontpage-box-link a:link, a:visited {
+    color: white;
+}
+
+#therapy-frontpage-box-link a:hover, a:focus  {
+    color: #000;
+}
+
+
+
+
+/* Frontpage Boxes "Phobia" Boxes styling */
+
+#phobia-frontpage-box-global {
+    float: left;
+    width: 215px;
+    padding: 10px;
+ }
+ 
+#phobia-frontpage-box-title {
+	text-align: center;
+}
+
+#phobia-frontpage-box-title a, a:visited {
+	color: #2DAAE2;
+}
+
+#phobia-frontpage-box-title a:hover, a:focus {
+	color: #662583;
+}
+
+#phobia-frontpage-box-link {
+	   text-align: center;
+	   background-color: #2DAAE2;
+	   -moz-box-shadow: 3px 3px 4px rgba(102, 37, 131, 0.71);
+	   -webkit-box-shadow: 3px 3px 4px rgba(102, 37, 131, 0.71);
+	   box-shadow: 3px 3px 4px rgba(102, 37, 131, 0.71);
+	   opacity: 1;
+	   -webkit-border-radius: 5px;
+	   -moz-border-radius: 5px;
+	   border-radius: 5px;
+	   width: 50%;
+	   margin: auto;
+	   padding: 6px 2px;
+   }
+
+#phobia-frontpage-box-link a:link, a:visited {
+    color: white;
+}
+
+#phobia-frontpage-box-link a:hover, a:focus  {
+    color: #000;
+}
+
+#footer-content-main {
+	width: 29%;
+	float: left;
+	padding-right: 2%;
+	padding-left: 2%;
+}
+
+#footer-content-main h3 {
+	font-size: 2em;
+	color: #2DAAE2;
+	margin-top: -1px;
+}

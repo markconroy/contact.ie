@@ -1,0 +1,72 @@
+<?php
+/**
+* @file
+ * This module provides a configurable footer message as a block.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function footer_message_form_system_site_information_settings_alter(&$form, &$form_state, $form_id) {	
+	// Add a footer text area to the "Site Information" admin page.
+	// Note the use of Drupal 7's new "text format" property, described 
+	// http://drupal.org/update/modules/6/7#text_format. Note that both the 
+	// value of this 'footer_message_msg' textarea and its filter format are 
+	// stored as a serial value in the variables table.
+	$site_footer = variable_get('footer_message_msg', 
+	  array('value' => 'This is default site footer content.'));
+	$form['footer_message_msg'] = array(
+		'#type' => 'text_format',
+		'#base_type' => 'textarea',
+		'#title' => t('Site Footer message'),
+		'#default_value' => $site_footer['value'],
+		'#format' => isset($site_footer['format']) ? $site_footer['format'] : NULL, 
+		'#required' => TRUE,
+	);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function footer_message_block_info() {	
+	// Add a block containing the site footer message.
+  $blocks['footer_message'] = array(
+    'info' => t('Footer Message'), 
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function footer_message_block_view($delta = '') {
+	$block = array();
+ 
+	switch ($delta) {		
+ 		// Display the footer message block. Note that we apply the appropriate filter format before outputting HTML.
+  	case 'footer_message':
+				$site_footer = variable_get('footer_message_msg', 
+				  array('value' => 'This is default site footer content.'));
+				$format = isset($site_footer['format']) ? $site_footer['format'] : NULL;
+        $block['content'] = check_markup($site_footer['value'], $format);
+		break;
+	}
+	
+  return $block;
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK()
+ */
+
+function footer_message_preprocess_page(&$variables) {
+  // Provide $footer_message as a theme variable to hook_preprocess_page() and page.tpl.php.
+	// Note that we apply filter format before outputting HTML.
+	$site_footer = variable_get('footer_message_msg', 
+	  array('value' => 'This is default site footer content.'));
+	$format = isset($site_footer['format']) ? $site_footer['format'] : NULL;
+  $variables['footer_message'] = check_markup($site_footer['value'], $format);
+}

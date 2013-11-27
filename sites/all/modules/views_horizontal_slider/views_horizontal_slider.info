@@ -1,0 +1,18 @@
+name = Horizontal slider for Views.
+description = Display views data in horizontal sliders.
+package = views
+dependencies[] = views
+core = 7.x
+version = "7.x-1.0"
+
+
+files[] = views_horizontal_slider.views.inc
+files[] = views_horizontal_slider_style_plugin.inc
+
+
+; Information added by drupal.org packaging script on 2011-11-09
+version = "7.x-1.0"
+core = "7.x"
+project = "views_horizontal_slider"
+datestamp = "1320835836"
+

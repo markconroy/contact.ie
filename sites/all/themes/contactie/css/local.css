@@ -1,0 +1,126 @@
+/* @override http://contact.ie/sites/all/themes/contactie/css/local.css?mjk00n */
+
+/* @override http://localhost/contact.ie/sites/all/themes/contactie/css/local.css?melx0j */
+
+/* @override http://localhost/contact.ie/sites/all/themes/contactie/css/local.css?melx0j */
+
+/* @override http://localhost/contact.ie/sites/all/themes/contactie/css/local.css?mekaoj */
+
+/* @override http://localhost/contact.ie/sites/all/themes/contactie/css/local.css?mek2d4 */
+
+/* adding some margin below ShareThis Buttons */
+
+.sharethis-buttons {
+
+	margin-bottom: 1em;
+}
+
+
+/* Moving webforms up a bit on page */
+
+.webform-client-form {
+    margin-top: -20px;
+}
+
+
+/*Styling for Slideshow Tweet Block */
+
+div.view-tweets .views-field-profile-image-url {
+    float: left;
+    padding: 10px;
+}
+
+div.view-tweets .views-field-screen-name {
+    background: #EEEFEA;
+}
+
+
+/*Styling for Sidebar Tweets Block */
+
+#block-views-tweets-block {
+    border: 1px solid white;
+    padding-top: 19px;
+    margin-left: 1em;
+}
+
+
+/*Styling for Contact Politicians View*/
+
+div.view-webform-contact-politicians a, a:visited {
+    color: #D95551;
+}
+
+div.view-webform-contact-politicians a:hover, a:focus {
+    color: black;
+}
+
+div.view-webform-contact-politicians a:active {
+    color: #D95551;
+}
+
+
+/*Styling for Frontpage "What do you want to do?" blocks*/
+
+#frontpage-what-do-you-want-to-do {
+	background-color: #EEEFEA;
+	border: .15em solid #D95551;
+	margin: 1em;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	padding: .4em 1em 1em;
+}
+
+
+/*Styling for ShareThis buttons*/
+
+.sharethis-buttons {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+/*Styling for Header Donate block*/
+
+#header-donate {
+	padding: 1em;
+	-webkit-border-radius: .5em;
+	-moz-border-radius: .5em;
+	border-radius: .5em;	background-color: white;
+	border: .15em solid #D95551;
+}
+
+/* Styling for Articles view */
+
+
+#view-articles-title h2 {
+     clear: left;
+ }
+
+#view-articles-image {
+     float: left;
+     margin-right: 10px;
+     margin-top: 6px;
+     margin-bottom: 20px;
+ }
+ 
+ #view-articles-link {
+ 		background: #D95551;
+		width: 100px; 
+		float: left;
+		border-radius:7px;
+		text-align: center;
+		padding: 1px;
+		}
+
+#view-articles-link a {
+	color: #fff;
+}
+
+
+/* Add some spacing between Taxonomy terms */
+.field-type-taxonomy-term-reference .field-item:before {
+    color: #D95551;
+    content: "#";
+    margin-left: 10px;
+    margin-right: 2px;
+}

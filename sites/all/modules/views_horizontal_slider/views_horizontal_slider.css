@@ -1,0 +1,62 @@
+/* $Id$ */
+
+/**
+ * Basic css for output * 
+ */
+
+div.views_horizontal_slider div.item-list{
+  list-style: none;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+  width:940px;
+}
+
+div.views_horizontal_slider div.item-list li{
+  float: left;
+  padding: 0px;
+  display: block;
+  margin-right: 2px;
+  color: #7c7c7c;
+  width: 100px; /* Initial width. This should be the same witdh as the "Min width" in the views options */
+  cursor: pointer; 
+  overflow:hidden;
+  position:relative; /* fix for ie7 relative positioning of children*/
+}
+
+/*no padding right for the last item*/
+div.views_horizontal_slider div.item-list li.hslider-last {
+  margin-right:0px
+}
+
+div.views_horizontal_slider div.item-list li img{
+  z-index:100;
+}
+
+/* This is the style for the active item on page load */
+div.views_horizontal_slider div.item-list li.hslider-active{
+  width: 300px; 
+}
+
+
+
+/******************************************
+********* HOVER TEXT STYLES ***************
+******************************************/
+
+/* this needs to be styled individually because one may use other fields*/
+/* this is a sample with the TITLE field and and image, the views fields ar sorted title first then image to avoid z-index issues*/
+
+div.views_horizontal_slider div.item-list li .views-field-title {
+  z-index: 999;
+  position: absolute;
+  top:250px;
+  font-size: 16px;
+  background-color: #fff;
+  margin-left:20px;
+  padding: 3px 10px 3px 10px;
+  /*display:none; */
+  width:200px;
+}
+

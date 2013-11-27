@@ -1,0 +1,39 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Main Module
+ *
+ * @TODO use library api module?
+ * @TODO hover intent?
+ * @TODO settings for hover or click?
+ * @TODO vertical slide too? there is a module i saw once
+ * @TODO jquery ui themes?
+*/
+
+/**
+ * Implementation of hook_views_api().
+ */
+
+function views_horizontal_slider_views_api() {
+  return array(
+    'api' => '3.0-alpha1',
+    'path' => drupal_get_path('module', 'views_horizontal_slider'),
+  );
+}
+
+
+/*
+ * adding stuff to the views-horizontal-slider-view.tpl.php
+ * hook_preprocess
+ */
+
+function template_preprocess_views_horizontal_slider_view(&$variables) {
+  $options['views_horizontal_slider'] = $variables['options'];
+  $path = drupal_get_path('module', 'views_horizontal_slider');
+
+  drupal_add_js($path . '/slider.js');
+  drupal_add_js($options, 'setting');
+  drupal_add_css($path . '/views_horizontal_slider.css');
+}

@@ -1,0 +1,303 @@
+<?php
+
+/**
+ * @file
+ * Drupal hook implementations for the Better Statistics module.
+ */
+
+/**
+ * Current and minimum Statistics API version. For internal use only!
+ */
+define('BETTER_STATISTICS_API_VERSION', 1.0);
+define('BETTER_STATISTICS_API_MIN_VERSION', 1.0);
+
+/**
+ * Implements hook_menu_alter().
+ *
+ * Redirects core's link to access log details page.
+ */
+function better_statistics_menu_alter(&$items) {
+  $items['admin/reports/access/%']['page callback'] = 'better_statistics_access_log';
+  $items['admin/reports/access/%']['module'] = 'better_statistics';
+  $items['admin/reports/access/%']['file'] = 'better_statistics.admin.inc';
+}
+
+/**
+ * Implements hook_schema_alter().
+ *
+ * Reflects the customizations chosen by the user in the schema.
+ */
+function better_statistics_schema_alter(&$schema) {
+  // Fetch the fields defined by this module.
+  $fields = variable_get('better_statistics_fields', better_statistics_get_default_fields());
+
+  // For each field defined, add it to the schema.
+  foreach ($fields as $field => $data) {
+    $schema['accesslog']['fields'][$field] = $data['schema'];
+  }
+}
+
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Ensures this module fires before Statistics' exit hook so that we don't
+ * double up on data. Note we're not removing Statistics' hook entirely because
+ * Statistics also handles node count data.
+ */
+function better_statistics_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'exit') {
+    // Ensure our hook fires before statistics.
+    $implementations['better_statistics'] = -1;
+  }
+}
+
+
+/**
+ * Implements hook_ctools_plugin_api_hook_name().
+ *
+ * Report to CTools that we use hook_statistics_api instead of
+ * hook_ctools_plugin_api().
+ */
+function better_statistics_ctools_plugin_api_hook_name() {
+  return 'statistics_api';
+}
+
+
+/**
+ * Implements hook_exit().
+ *
+ * Gathers additional data and inserts our data into accesslog.
+ */
+function better_statistics_exit() {
+  // If statistics access log is set to run, run our code.
+  if (variable_get('statistics_enable_access_log', 0)) {
+
+    // Force a recheck on cache status, just in case this function was called
+    // before the X-Drupal-Cache header was set.
+    $cache_status = better_statistics_served_from_cache(TRUE);
+
+    // @see statistics_exit()
+    drupal_bootstrap(DRUPAL_BOOTSTRAP_SESSION);
+    include_once DRUPAL_ROOT . '/includes/unicode.inc';
+
+    // Load all relevant module.statistics.inc files for hook invocations.
+    better_statistics_load_active_incs();
+
+    // Allow all modules to react before logging begins.
+    module_invoke_all('better_statistics_prelog');
+
+    // Log the request if the request is loggable.
+    if (better_statistics_request_is_loggable()) {
+      // Get all declared fields and their computed values.
+      $fields = better_statistics_get_fields_data();
+
+      // Allow modules to log statistics data.
+      module_invoke_all('better_statistics_log', $fields);
+    }
+  }
+
+  // Keep statistics from writing additional data to the accesslog.
+  global $conf;
+  $conf['statistics_enable_access_log'] = FALSE;
+}
+
+
+/**
+ * Implements hook_views_api().
+ */
+function better_statistics_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'better_statistics') . '/views',
+  );
+}
+
+
+/**
+ * Implements hook_flush_caches().
+ *
+ * When all caches are flushed, detect any updates we need to make on active
+ * fields. This is implemented not to declare a cache table for flushing, but to
+ * react when all caches are flushed.
+ */
+function better_statistics_flush_caches() {
+  module_load_include('inc', 'better_statistics', 'better_statistics.admin');
+  _better_statistics_update_fields();
+
+  return array();
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @see _better_statistics_form_statistics_settings_form_alter()
+ */
+function better_statistics_form_statistics_settings_form_alter(&$form, &$form_state, $form_id) {
+  module_load_include('inc', 'better_statistics', 'better_statistics.admin');
+  _better_statistics_form_statistics_settings_form_alter($form, $form_state, $form_id);
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * @see _better_statistics_form_system_performance_settings_form_alter()
+ */
+function better_statistics_form_system_performance_settings_alter(&$form, &$form_state, $form_id) {
+  module_load_include('inc', 'better_statistics', 'better_statistics.admin');
+  _better_statistics_form_system_performance_settings_alter($form, $form_state, $form_id);
+}
+
+
+/**
+ * Submit handler for the Better Statistics configuration form.
+ *
+ * @see _better_statistics_settings_form_submit()
+ */
+function better_statistics_settings_form_submit($form, &$form_state) {
+  module_load_include('inc', 'better_statistics', 'better_statistics.admin');
+  _better_statistics_settings_form_submit($form, $form_state);
+}
+
+
+/**
+ * Implements hook_statistics_api().
+ */
+function better_statistics_statistics_api() {
+  return array(
+    // In your module, do not use this constant!
+    'api' => BETTER_STATISTICS_API_VERSION,
+    'path' => drupal_get_path('module', 'better_statistics'),
+  );
+}
+
+
+/**
+ * Returns default fields in the exact same form expected of fields exposed via
+ * hook_better_statistics_fields().
+ */
+function better_statistics_get_default_fields() {
+  static $default_fields;
+
+  if (!isset($default_fields)) {
+    // In some contexts, drupal_get_schema_unproccessed may be unavailable, so
+    // here, we get the accesslog schema the same way it does.
+    require_once DRUPAL_ROOT . '/modules/statistics/statistics.install';
+    $schema = module_invoke('statistics', 'schema');
+
+    // Expose Drupal Core's accesslog fields to our own API.
+    $accesslog = $schema['accesslog'];
+    foreach ($accesslog['fields'] as $field => $schema) {
+      $default_fields[$field] = array(
+        'schema' => $schema,
+        'views_field' => FALSE,
+        'callback' => 'better_statistics_get_field_value',
+      );
+    }
+  }
+
+  return $default_fields;
+}
+
+
+/**
+ * Returns data for all valid, declared fields in preparation for DB insertion.
+ */
+function better_statistics_get_fields_data() {
+  $fields = variable_get('better_statistics_fields', better_statistics_get_default_fields());
+  $field_data = array();
+
+  // Loop through all custom fields.
+  foreach ($fields as $field => $data) {
+    // Only insert data into this field if there's a callback to get data.
+    if (is_callable($data['callback'])) {
+      $field_data[$field] = $data['callback']($field);
+    }
+  }
+
+  return $field_data;
+}
+
+
+/**
+ * Loads module.statistics.inc files for all active fields.
+ */
+function better_statistics_load_active_incs() {
+  // Prevent this function from loading it multiple times.
+  static $loaded;
+
+  if (empty($loaded)) {
+    $loaded = TRUE;
+
+    // Include this module's API file because of how core fields are implemented.
+    require_once(dirname(__FILE__) . '/better_statistics.statistics.inc');
+
+    // Loop through each file stored in the active incs list and include it.
+    // These are stored in a variable rather than being assembled dynamically
+    // due to the nature of cached pages and their bootstrap status.
+    $incs = variable_get('better_statistics_active_incs', array());
+    foreach ($incs as $file) {
+      // If there's an inc file and it hasn't been loaded yet, load it.
+      if (file_exists($file)) {
+        require_once($file);
+      }
+    }
+  }
+}
+
+
+/**
+ * Determines the loggability of the current request.
+ *
+ * @return
+ *   TRUE if the current page can be logged, FALSE otherwise.
+ */
+function better_statistics_request_is_loggable($allow_logging = NULL) {
+  $allow_logging_static = &drupal_static(__FUNCTION__, TRUE);
+
+  if (isset($allow_logging)) {
+    $allow_logging_static = $allow_logging;
+  }
+
+  return $allow_logging_static;
+}
+
+/**
+ * Determines whether or not the current request is being served from cache.
+ *
+ * Note that you may need to use === to determine the cache status of the page,
+ * because some requests will return NULL, which evaluates to FALSE.
+ *
+ * @param boolean $recheck
+ *   (optional) If set to TRUE, cache status will be manually re-checked.
+ *
+ * @return
+ *   A boolean TRUE if the page is being served from cache, FALSE if the page is
+ *   cacheable, but not served from cache. NULL is returned in the case when the
+ *   page was never cacheable to begin with.
+ */
+function better_statistics_served_from_cache($recheck = FALSE) {
+  static $cached;
+
+  if (!isset($cached) || $recheck) {
+    $headers = headers_list();
+    $hit = array_search('X-Drupal-Cache: HIT', $headers);
+    $miss = array_search('X-Drupal-Cache: MISS', $headers);
+
+    // If neither a hit nor miss header are present, the page wasn't cacheable
+    // to begin with. Return NULL.
+    if ($hit !== FALSE) {
+      $cached = TRUE;
+    }
+    elseif ($miss !== FALSE) {
+      $cached = FALSE;
+    }
+    else {
+      $cached = NULL;
+    }
+  }
+
+  return $cached;
+}
