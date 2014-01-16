@@ -91,10 +91,16 @@ define('ADVAGG_URL_INBOUND_ALTER', TRUE);
  */
 define('ADVAGG_SCRIPTS_SCOPE_ANYWHERE', FALSE);
 
+/**
+ * Empty the scripts key inside of template_process_html replacement function.
+ */
+define('ADVAGG_CLEAR_SCRIPTS', TRUE);
+
 // Core hook implementations.
 /**
- * Inbound URL rewrite helper
- * If host includes subdomain, rewrite URI and internal path if necessary
+ * Inbound URL rewrite helper.
+ *
+ * If host includes subdomain, rewrite URI and internal path if necessary.
  */
 function advagg_url_inbound_alter(&$path, $original_path, $path_language) {
   // Do nothing if this has been disabled.
@@ -497,12 +503,12 @@ function advagg_js_alter(&$js) {
       continue;
     }
 
-    // If type is external but doesn't start with http or //, change it to file.
+    // If type is external but doesn't start with http or // change it to file.
     if ($value['type'] == 'external' && stripos($value['data'], 'http://') !== 0 && stripos($value['data'], 'https://') !== 0 && stripos($value['data'], '//') !== 0) {
       $value['type'] = 'file';
     }
 
-    // If type is file but it starts with http or //, change it to external.
+    // If type is file but it starts with http or // change it to external.
     if ((stripos($value['data'], 'http://') === 0 || stripos($value['data'], 'https://') === 0 || stripos($value['data'], '//') === 0) && $value['type'] == 'file') {
       $value['type'] = 'external';
     }
@@ -523,12 +529,12 @@ function advagg_css_alter(&$css) {
       continue;
     }
 
-    // If type is external but doesn't start with http or //, change it to file.
+    // If type is external but doesn't start with http or // change it to file.
     if ($value['type'] == 'external' && stripos($value['data'], 'http://') !== 0 && stripos($value['data'], 'https://') !== 0 && stripos($value['data'], '//') !== 0) {
       $value['type'] = 'file';
     }
 
-    // If type is file but it starts with http or //, change it to external.
+    // If type is file but it starts with http or // change it to external.
     if ((stripos($value['data'], 'http://') === 0 || stripos($value['data'], 'https://') === 0 || stripos($value['data'], '//') === 0) && $value['type'] == 'file') {
       $value['type'] = 'external';
     }
@@ -962,6 +968,10 @@ function _advagg_process_html(&$variables) {
   }
 
   // JS needs hacks.
+  // Clear out all old scripts
+  if (variable_get('advagg_clear_scripts', ADVAGG_CLEAR_SCRIPTS)) {
+    $variables['scripts'] = '';
+  }
   if (!isset($variables['scripts'])) {
     $variables['scripts'] = '';
   }
@@ -1661,6 +1671,11 @@ function advagg_build_aggregates($filenames) {
   module_load_include('inc', 'advagg', 'advagg.missing');
   $return = array();
   foreach ($filenames as $filename) {
+    // Skip if the file exists.
+    if (file_exists($filename)) {
+      continue;
+    }
+
     // Only create the file if we have a lock.
     $lock_name = 'advagg_' . $filename;
     if (lock_acquire($lock_name, 10)) {
@@ -2073,7 +2088,7 @@ function advagg_group_js($javascript) {
         break;
 
       default:
-        // Define this here so we dont get undefined alerts down below.
+        // Define this here so we don't get undefined alerts down below.
         $group_keys = NULL;
         break;
     }

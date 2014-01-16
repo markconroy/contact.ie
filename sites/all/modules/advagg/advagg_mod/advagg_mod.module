@@ -277,6 +277,10 @@ function advagg_mod_sort_css_js(&$array, $type) {
     $offset = 0.0001;
     $weight += -1;
     foreach ($external as $key => $value) {
+      if (isset($value['moveable']) && empty($value['moveable'])) {
+        $array[$key] = $value;
+        continue;
+      }
       $value['group'] = $group;
       $value['every_page'] = $every_page;
       $value['weight'] = $weight;
@@ -336,6 +340,10 @@ function advagg_mod_sort_css_js(&$array, $type) {
     $offset = 0.0001;
     $weight += 1;
     foreach ($inline as $key => $value) {
+      if (isset($value['moveable']) && empty($value['moveable'])) {
+        $array[$key] = $value;
+        continue;
+      }
       $value['group'] = $group;
       $value['every_page'] = $every_page;
       $value['weight'] = $weight;
@@ -395,9 +403,13 @@ function advagg_mod_sort_css_js(&$array, $type) {
         // Sort the array so that it appears in the correct order.
         uasort($browsers, 'drupal_sort_css_js');
 
-        // Group all external together.
+        // Group all browsers together.
         $offset = 0.0001;
         foreach ($browsers as $key => $value) {
+          if (isset($value['moveable']) && empty($value['moveable'])) {
+            $array[$key] = $value;
+            continue;
+          }
           $value['group'] = $group;
           $value['every_page'] = $every_page;
           $value['weight'] = $weight;

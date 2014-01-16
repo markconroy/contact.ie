@@ -204,13 +204,10 @@ function advagg_missing_set_farfuture_headers() {
     header('Set-Cookie:');
     header('Set-Cookie:');
   }
-  // Set a far future Cache-Control header (480 weeks), which prevents
+  // Set a far future Cache-Control header (52 weeks), which prevents
   // intermediate caches from transforming the data and allows any
   // intermediate cache to cache it, since it's marked as a public resource.
-  header('Cache-Control: max-age=290304000, no-transform, public');
-  // Set a far future Expires header. The maximum UNIX timestamp is somewhere
-  // in 2038. Set it to a date in 2037, just to be safe.
-  header("Expires: Tue, 20 Jan 2037 04:08:15 GMT");
+  header('Cache-Control: max-age=31449600, no-transform, public');
 }
 
 /**
@@ -281,27 +278,30 @@ function advagg_htaccess_check_generate($files_to_save, $type, $force = FALSE) {
   $data .= "      # Use ETags.\n";
   $data .= "      FileETag MTime Size\n";
   $data .= "    </IfModule>\n";
+  $data .= "  </IfModule>\n";
   $data .= "\n";
-  $data .= "    # Use Expires Directive.\n";
-  $data .= "    <IfModule mod_expires.c>\n";
-  $data .= "      # Do not use ETags.\n";
-  $data .= "      FileETag None\n";
-  $data .= "      # Enable expirations.\n";
-  $data .= "      ExpiresActive On\n";
-  $data .= "      # Cache all aggregated ${type} files for 480 weeks after access (A).\n";
-  $data .= "      ExpiresDefault A290304000\n";
-  $data .= "    </IfModule>\n";
+  $data .= "  # Use Expires Directive.\n";
+  $data .= "  <IfModule mod_expires.c>\n";
+  $data .= "    # Do not use ETags.\n";
+  $data .= "    FileETag None\n";
+  $data .= "    # Enable expirations.\n";
+  $data .= "    ExpiresActive On\n";
+  $data .= "    # Cache all aggregated ${type} files for 52 weeks after access (A).\n";
+  $data .= "    ExpiresDefault A31449600\n";
   $data .= "  </IfModule>\n";
   $data .= "\n";
   $data .= "  <IfModule mod_headers.c>\n";
-  $data .= "    # Serve correct content type.\n";
-  $data .= "    Header set Content-Type text/${content_type}\n";
-  $data .= "    # Set a far future Cache-Control header to 480 weeks.\n";
-  $data .= "    Header set Cache-Control \"max-age=290304000, no-transform, public\"\n";
-  $data .= "    # Set a far future Expires header.\n";
-  $data .= "    Header set Expires \"Tue, 20 Jan 2037 04:20:42 GMT\"\n";
   $data .= "    # Do not use etags for cache validation.\n";
   $data .= "    Header unset ETag\n";
+  $data .= "    # Serve correct content type.\n";
+  $data .= "    Header set Content-Type text/${content_type}\n";
+  $data .= "    <IfModule !mod_expires.c>\n";
+  $data .= "      # Set a far future Cache-Control header to 52 weeks.\n";
+  $data .= "      Header set Cache-Control \"max-age=31449600, no-transform, public\"\n";
+  $data .= "    </IfModule>\n";
+  $data .= "    <IfModule mod_expires.c>\n";
+  $data .= "      Header append Cache-Control \"no-transform, public\"\n";
+  $data .= "    </IfModule>\n";
   $data .= "  </IfModule>\n";
   $data .= "</FilesMatch>\n";
 
@@ -646,7 +646,27 @@ function advagg_save_aggregate($filename, $files, $type, $aggregate_settings) {
   foreach ($files_to_save as $uri => $data) {
     advagg_save_data($uri, $data);
     if (!file_exists($uri) || filesize($uri) == 0) {
-      watchdog('advagg', 'Write to file system failed. %uri', array('%uri' => $uri), WATCHDOG_EMERGENCY);
+      if ($type == 'css') {
+        $full_dir = DRUPAL_ROOT . '/' . $css_path[1];
+      }
+      elseif ($type == 'js') {
+        $full_dir = DRUPAL_ROOT . '/' . $js_path[1];
+      }
+      $free_space = @disk_free_space($full_dir);
+      if ($free_space !== FALSE && strlen($data) > $free_space) {
+        watchdog('advagg', 'Write to file system failed. Disk is full. %uri', array('%uri' => $uri), WATCHDOG_ALERT);
+      }
+      elseif (!is_writable($full_dir)) {
+        watchdog('advagg', 'Write to file system failed. Check directory permissions. %uri', array('%uri' => $uri), WATCHDOG_ERROR);
+      }
+      else {
+        watchdog('advagg', 'Write to file system failed. %uri', array('%uri' => $uri), WATCHDOG_ERROR);
+      }
+      // If the file is empty, remove it. Serving via drupal is better than an
+      // empty aggregate being served.
+      if (file_exists($uri) && filesize($uri) == 0) {
+        @unlink($uri);
+      }
     }
   }
   return $files_to_save;
@@ -671,6 +691,11 @@ function advagg_save_data($uri, $data, $overwrite = FALSE) {
     return;
   }
 
+  // If data is empty, write a space.
+  if (empty($data)) {
+    $data = ' ';
+  }
+
   // Perform the replace operation. Since there could be multiple processes
   // writing to the same file, the best option is to create a temporary file in
   // the same directory and then rename it to the destination. A temporary file
@@ -679,6 +704,9 @@ function advagg_save_data($uri, $data, $overwrite = FALSE) {
 
   // Get a temporary filename in the destination directory.
   $temporary_file = drupal_tempnam(drupal_dirname($uri), 'file');
+  // Get the extension of the original filename and append it to the temp file
+  // name. Preserves the mime type in different stream wrapper implementations.
+  $temporary_file .= "." . pathinfo($uri, PATHINFO_EXTENSION);
   // Save to temporary filename in the destination directory.
   $filepath = file_unmanaged_save_data($data, $temporary_file, FILE_EXISTS_REPLACE);
 

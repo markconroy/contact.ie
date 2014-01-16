@@ -148,6 +148,10 @@ settings.php. In general they are settings that should not be changed.
     // it.
     $conf['advagg_scripts_scope_anywhere'] = FALSE;
 
+    // Empty the scripts key inside of template_process_html replacement
+    // function.
+    $conf['advagg_scripts_scope_anywhere'] = FALSE;
+
     // Set the jQuery UI version.
     $conf['advagg_css_cdn_jquery_ui_version'] = '1.8.7';
 
@@ -216,6 +220,15 @@ Technical Details:
    the aggregate. Changing a setting that affects how aggregates get built
    (like toggling "Create .gz files") will change this value.
 
+ * To trigger scanning of the CSS / JS file cache to identify new files, run
+   the following:
+
+      // Trigger reloading the CSS and JS file cache in AdvAgg.
+      if (module_exists('advagg')) {
+        module_load_include('inc', 'advagg', 'advagg.cache');
+        advagg_push_new_changes();
+      }
+
 Hooks:
 
 Modify file contents.
@@ -265,7 +278,7 @@ Note that @drupal might be @rewrite depending on your servers configuration.
       access_log  off;
       expires     max;
       add_header  ETag "";
-      add_header  Cache-Control "max-age=290304000, no-transform, public";
+      add_header  Cache-Control "max-age=31449600, no-transform, public";
       try_files   $uri @drupal;
     }
 
@@ -285,6 +298,22 @@ variable must be set inside of settings.php. Add this to your settings.php file:
     $conf['fast_404_string_whitelisting'][] = '/advagg_';
 
 
+Modules like the Central Authentication Services https://drupal.org/project/cas
+will redirect all anonymous requests to a login page. Most of the time there is
+a setting that allows certian pages to be excluded from the redirect. You should
+add the following to those exclusions. Note that sites/default/files is the
+location of you public file system (public://) so you might have to adjust this
+to fit your setup. services/* is the default (CAS_EXCLUDE) and
+httprl_async_function_callback is needed if httprl will be used.
+    services/*
+    sites/default/files/advagg_css/*
+    sites/default/files/advagg_js/*
+    httprl_async_function_callback
+
+In the example of CAS this setting can be found on the admin/config/people/cas
+page and under Redirection there should be a setting called "Excluded Pages".
+
+
 If Far-Future headers are not being sent out and you are using Apache here are
 some tips to hopefully get it working. For Apache enable mod_rewrite,
 mod_headers, and mod_expires. Add the following code to the bottom of Drupal's
@@ -293,24 +322,33 @@ core .htaccess file (located at the webroot level).
     <FilesMatch "^(css|js)__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}__[A-Za-z0-9-_]{43}.(css|js)(\.gz)?">
       # No mod_headers
       <IfModule !mod_headers.c>
-        # Use Expires Directive.
-        <IfModule mod_expires.c>
-          # Do not use ETags.
-          FileETag None
-          # Enable expirations.
-          ExpiresActive On
-          # Cache all aggregated css/js files for 480 weeks after access (A).
-          ExpiresDefault A290304000
+        # No mod_expires
+        <IfModule !mod_expires.c>
+          # Use ETags.
+          FileETag MTime Size
         </IfModule>
       </IfModule>
 
+      # Use Expires Directive.
+      <IfModule mod_expires.c>
+        # Do not use ETags.
+        FileETag None
+        # Enable expirations.
+        ExpiresActive On
+        # Cache all aggregated css/js files for 52 weeks after access (A).
+        ExpiresDefault A31449600
+      </IfModule>
+
       <IfModule mod_headers.c>
-        # Set a far future Cache-Control header to 480 weeks.
-        Header set Cache-Control "max-age=290304000, no-transform, public"
-        # Set a far future Expires header.
-        Header set Expires "Tue, 20 Jan 2037 04:20:42 GMT"
         # Do not use etags for cache validation.
         Header unset ETag
+        <IfModule !mod_expires.c>
+          # Set a far future Cache-Control header to 52 weeks.
+          Header set Cache-Control "max-age=31449600, no-transform, public"
+        </IfModule>
+        <IfModule mod_expires.c>
+          Header append Cache-Control "no-transform, public"
+        </IfModule>
       </IfModule>
     </FilesMatch>
 

@@ -207,6 +207,12 @@ function advagg_js_compress_prep(&$contents, $filename, $aggregate_settings, $ad
       $contents = jsmin($contents);
     }
 
+    // Ensure that $contents ends with ; or }.
+    if (strpbrk(substr(trim($contents), -1), ';}') === FALSE) {
+      // ; or } not found, add in ; to the end of $contents.
+      $contents = trim($contents) . ';';
+    }
+
     // Cache minified data for at least 1 day.
     cache_set($cache_id, $contents, 'cache_advagg_info', REQUEST_TIME+86400);
   }

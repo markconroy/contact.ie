@@ -614,13 +614,7 @@ function advagg_build_aggregate_plans($files_to_aggregate, $type) {
 function advagg_create_aggregate_files($plans) {
   $filenames = array();
   foreach ($plans as $plan) {
-    // Use cache here?
-    if (!file_exists($plan['filepath'])) {
-      $filenames[] = $plan['filename'];
-    }
-  }
-  if (empty($filenames)) {
-    return;
+    $filenames[] = $plan['filename'];
   }
 
   // If the httprl module exists and we want to use it.
