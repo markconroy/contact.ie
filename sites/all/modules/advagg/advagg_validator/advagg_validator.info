@@ -6,9 +6,9 @@ dependencies[] = advagg
 
 configure = admin/config/development/performance/advagg/validator
 
-; Information added by Drupal.org packaging script on 2014-01-01
-version = "7.x-2.4"
+; Information added by Drupal.org packaging script on 2014-03-06
+version = "7.x-2.5"
 core = "7.x"
 project = "advagg"
-datestamp = "1388542706"
+datestamp = "1394074705"
 
