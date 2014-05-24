@@ -4,10 +4,3 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-
-# Ignore databases
-backups
-backups/*
-
-# Ignore .DS_Store files
-*.DS_Store
