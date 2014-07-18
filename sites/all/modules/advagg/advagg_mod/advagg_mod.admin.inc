@@ -30,6 +30,21 @@ function advagg_mod_admin_settings_form() {
     ),
     '#description' => t("If you have JavaScript inline in the body of your document, such as if you are displaying ads, you may need to keep Drupal JS Libraries in the head instead of moving them to the footer. This will keep all JS added with the JS_LIBRARY group in the head while still moving all other JavaScript to the footer."),
   );
+
+  $form['js']['advagg_mod_js_footer_inline_alter'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Put a wrapper around inline JS if it was added in the content section incorrectly'),
+    '#default_value' => variable_get('advagg_mod_js_footer_inline_alter', ADVAGG_MOD_JS_FOOTER_INLINE_ALTER),
+    '#description' => t('This will put a wrapper around any inline JavaScript that was added to the content part of the page incorrectly. The wrapper will check every 250ms until window.Drupal.settings and window.jQuery are defined; at that point the inlined code will then run.'),
+
+    '#states' => array(
+      'disabled' => array(
+        ':input[name="advagg_mod_js_footer"]' => array('value' => '0'),
+        ':input[name="advagg_mod_js_defer"]' => array('checked' => FALSE),
+        ':input[name="advagg_mod_js_async"]' => array('checked' => FALSE),
+      ),
+    ),
+  );
   $form['js']['advagg_mod_js_preprocess'] = array(
     '#type' => 'checkbox',
     '#title' => t('Enable preprocess on all JS'),
@@ -180,7 +195,7 @@ function advagg_mod_admin_settings_form() {
   $form['landing_page'] = array(
     '#type' => 'fieldset',
     '#title' => t('Inline CSS/JS on specific pages'),
-    '#description' => t('For most people this is a setting that should not be used. This will prevent all local CSS & JavaScript files from being downloaded; instead the contents of them will all be inlined. This will cause the raw HTML downloaded to be a lot bigger but it will cause less connections to your webserver from being created. This can sometimes be useful for certian landing pages.'),
+    '#description' => t('For most people this is a setting that should not be used. This will prevent all local CSS & JavaScript files from being downloaded; instead the contents of them will all be inlined. This will cause the raw HTML downloaded to be a lot bigger but it will cause less connections to your webserver from being created. This can sometimes be useful for certain landing pages.'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );

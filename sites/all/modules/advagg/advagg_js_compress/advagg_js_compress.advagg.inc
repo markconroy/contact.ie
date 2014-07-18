@@ -279,6 +279,10 @@ function advagg_js_compress_prep(&$contents, $filename, $aggregate_settings, $ad
   if ($compressor == 0) {
     return;
   }
+  // Do nothing if the cache settings are set to Development.
+  if (variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) < 0) {
+    return;
+  }
 
   // Get the JS string length before the compression operation.
   $contents_before = $contents;

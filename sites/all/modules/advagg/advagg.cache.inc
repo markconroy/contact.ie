@@ -331,7 +331,7 @@ function advagg_remove_missing_files_from_db() {
         // accessed in the last 2 weeks.
         $can_delete = db_delete('advagg_aggregates_versions')
           ->condition('aggregate_filenames_hash', $values['aggregate_filenames_hash'])
-          ->condition('atime', REQUEST_TIME - 1209600, '<')
+          ->condition('atime', REQUEST_TIME - variable_get('advagg_remove_missing_files_from_db_time', ADVAGG_REMOVE_MISSING_FILES_FROM_DB_TIME), '<')
           ->execute();
         if ($can_delete > 0) {
           $advagg_aggregates_versions_del += $can_delete;
@@ -405,9 +405,9 @@ function advagg_remove_old_unused_aggregates() {
     }
   }
 
-  // Delete aggregate versions that have not been accessed in the last 6 weeks.
+  // Delete aggregate versions that have not been accessed in the last 45 days.
   $advagg_aggregates_versions_del += db_delete('advagg_aggregates_versions')
-    ->condition('atime', REQUEST_TIME - 3628800, '<')
+    ->condition('atime', REQUEST_TIME - variable_get('advagg_remove_old_unused_aggregates_time', ADVAGG_REMOVE_OLD_UNUSED_AGGREGATES_TIME), '<')
     ->execute();
 
   // See if any aggregates are orphaned now.

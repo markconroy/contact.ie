@@ -62,34 +62,22 @@ function advagg_insert_update_db($files, $type, $root) {
  *   Return TRUE if anything was written to the database.
  */
 function advagg_insert_aggregate_version($aggregate_filenames_hash, $aggregate_contents_hash, $root) {
-  // Build query checking if this aggregate exists in the
-  // advagg_aggregates_versions table.
-  $aggregate_exists = db_select('advagg_aggregates_versions', 'aav')
-    ->fields('aav')
-    ->condition('aggregate_filenames_hash', $aggregate_filenames_hash)
-    ->condition('aggregate_contents_hash', $aggregate_contents_hash)
-    ->execute()
-    ->fetchAssoc();
-  // If this aggregate version already exists, return FALSE here.
-  if (!empty($aggregate_exists)) {
-    return FALSE;
-  }
-
-  $lock_name = 'advagg_insert_aggregate_version:' . $root . ':' . $aggregate_filenames_hash . ':' . $aggregate_contents_hash;
-  if (!lock_acquire($lock_name, 5)) {
-    // Skip if no lock acquired.
-    return FALSE;;
-  }
-  // Save new aggregate into the database.
+  // Info for the DB.
   $record = array(
     'aggregate_filenames_hash' => $aggregate_filenames_hash,
     'aggregate_contents_hash' => $aggregate_contents_hash,
     'atime' => 0,
     'root' => $root,
   );
-  $return = drupal_write_record('advagg_aggregates_versions', $record);
-  // Release Lock.
-  lock_release($lock_name);
+
+  // Save new aggregate into the database if it does not exist.
+  $return = db_merge('advagg_aggregates_versions')
+    ->key(array(
+      'aggregate_filenames_hash' => $record['aggregate_filenames_hash'],
+      'aggregate_contents_hash' => $record['aggregate_contents_hash'],
+      ))
+    ->insertFields($record)
+    ->execute();
   return $return;
 }
 
@@ -128,12 +116,6 @@ function advagg_insert_aggregate($files, $aggregate_filenames_hash) {
       continue;
     }
 
-    $lock_name = 'advagg_insert_aggregate:' . $count . ':' . $file_meta_data['filename_hash'] . ':' . $aggregate_filenames_hash;
-    if (!lock_acquire($lock_name, 5)) {
-      // Skip if no lock acquired.
-      continue;
-    }
-
     // Store settings for this file that depend on how it was added.
     $settings = array();
     if (isset($file_meta_data['media_query'])) {
@@ -145,13 +127,19 @@ function advagg_insert_aggregate($files, $aggregate_filenames_hash) {
       'aggregate_filenames_hash' => $aggregate_filenames_hash,
       'filename_hash' => $file_meta_data['filename_hash'],
       'porder' => $count,
-      'settings' => $settings,
+      'settings' => serialize($settings),
     );
-    if (drupal_write_record('advagg_aggregates', $record)) {
+    $return = db_merge('advagg_aggregates')
+      ->key(array(
+        'aggregate_filenames_hash' => $record['aggregate_filenames_hash'],
+        'filename_hash' => $record['filename_hash'],
+        ))
+      ->insertFields($record)
+      ->execute();
+
+    if ($return) {
       $write_done = TRUE;
     }
-    // Release Lock.
-    lock_release($lock_name);
   }
   return $write_done;
 }
@@ -188,9 +176,6 @@ function advagg_insert_update_files($files, $type) {
   }
 
   foreach ($files as $filename => $file_meta_data) {
-    // Build lock name variable.
-    $lock_name = 'advagg_insert_update_files:' . $filename;
-
     // Create record.
     $record = array(
       'filename' => $filename,
@@ -206,15 +191,17 @@ function advagg_insert_update_files($files, $type) {
     if (empty($files_in_db[$filename])) {
       // Insert into database.
       $record['changes'] = 1;
-      if (!lock_acquire($lock_name, 5)) {
-        // Skip if no lock acquired.
-        continue;
-      }
-      if (drupal_write_record('advagg_files', $record)) {
+
+      $return = db_merge('advagg_files')
+        ->key(array(
+          'filename_hash' => $record['filename_hash'],
+          ))
+        ->insertFields($record)
+        ->execute();
+
+      if ($return) {
         $write_done = TRUE;
       }
-      // Release Lock.
-      lock_release($lock_name);
     }
     else {
       // Take changes counter out of the diff equation.
@@ -226,15 +213,16 @@ function advagg_insert_update_files($files, $type) {
       if (!empty($diff)) {
         $diff['changes'] = $changes + 1;
         $diff['filename_hash'] = $record['filename_hash'];
-        if (!lock_acquire($lock_name, 5)) {
-          // Skip if no lock acquired.
-          continue;
-        }
-        if (drupal_write_record('advagg_files', $diff, array('filename_hash'))) {
+
+        $return = db_merge('advagg_files')
+          ->key(array(
+            'filename_hash' => $diff['filename_hash'],
+            ))
+          ->updateFields($diff)
+          ->execute();
+        if ($return) {
           $write_done = TRUE;
         }
-        // Release Lock.
-        lock_release($lock_name);
       }
     }
   }
@@ -975,7 +963,7 @@ function advagg_create_subfile($css, $overall_split, $file_info) {
  *
  * @param array $files_to_aggregate
  *   An array of CSS/JS groups.
- * @param array $type
+ * @param string $type
  *   css or js.
  *
  * @return array
@@ -1051,7 +1039,9 @@ function advagg_build_aggregate_plans($files_to_aggregate, $type) {
   }
 
   // Create the aggregate files.
-  advagg_create_aggregate_files($plans);
+  if (variable_get('advagg_pregenerate_aggregate_files', ADVAGG_PREGENERATE_AGGREGATE_FILES)) {
+    $output = advagg_create_aggregate_files($plans, $type);
+  }
 
   return $plans;
 }
@@ -1061,9 +1051,15 @@ function advagg_build_aggregate_plans($files_to_aggregate, $type) {
  *
  * @param array $plans
  *   An array of aggregate file names.
+ * @param string $type
+ *   css or js.
+ *
+ * @return array
+ *   An array of what was done when generating the file.
  */
-function advagg_create_aggregate_files($plans) {
+function advagg_create_aggregate_files($plans, $type) {
   $filenames = array();
+  $return = array();
   foreach ($plans as $plan) {
     $filenames[] = $plan['filename'];
   }
@@ -1074,21 +1070,38 @@ function advagg_create_aggregate_files($plans) {
       && variable_get('advagg_use_httprl', ADVAGG_USE_HTTPRL)
       && (is_callable('httprl_is_background_callback_capable') && httprl_is_background_callback_capable() || !is_callable('httprl_is_background_callback_capable'))
       ) {
-    // Setup callback options array; call function in the background.
-    $callback_options = array(
-      array(
-        'function' => 'advagg_build_aggregates',
-      ),
-      $filenames,
-    );
-    // Queue up the request.
-    httprl_queue_background_callback($callback_options);
-    // Execute request.
-    $return = httprl_send_request();
+    if (variable_get('advagg_fast_filesystem', ADVAGG_FAST_FILESYSTEM)) {
+      list($css_path, $js_path) = advagg_get_root_files_dir();
+      foreach ($filenames as $key => $filename) {
+        if ($type == 'css') {
+          $uri = $css_path[0] . '/' . $filename;
+        }
+        elseif ($type == 'js') {
+          $uri = $js_path[0] . '/' . $filename;
+        }
+        if (file_exists($uri)) {
+          unset($filenames[$key]);
+        }
+      }
+    }
+    if (!empty($filenames)) {
+      // Setup callback options array; call function in the background.
+      $callback_options = array(
+        array(
+          'function' => 'advagg_build_aggregates',
+        ),
+        $filenames, $type,
+      );
+      // Queue up the request.
+      httprl_queue_background_callback($callback_options);
+      // Execute request.
+      $return = httprl_send_request();
+    }
   }
   else {
-    $return = advagg_build_aggregates($filenames);
+    $return = advagg_build_aggregates($filenames, $type);
   }
+  return $return;
 }
 
 /**

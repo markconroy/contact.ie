@@ -183,7 +183,8 @@ the Smart Cache Flush. There are no configuration options here.
 **Hidden Settings**
 
 The following settings are not configurable from the admin UI and must be set in
-settings.php. In general they are settings that should not be changed.
+settings.php. In general they are settings that should not be changed. The
+current defaults are shown.
 
     // Display a message that the bypass cookie is set.
     $conf['advagg_show_bypass_cookie_message'] = TRUE;
@@ -207,6 +208,16 @@ settings.php. In general they are settings that should not be changed.
     // Empty the scripts key inside of template_process_html replacement
     // function.
     $conf['advagg_scripts_scope_anywhere'] = FALSE;
+
+    // Do more file operations in main thread if the file system is fast. If
+    // AdvAgg's directories are mounted on something like S3, you might want to
+    // set this to FALSE.
+    $conf['advagg_fast_filesystem'] = TRUE;
+
+    // Pregenerate aggregate files. If disable the browser requesting the file
+    // will cause the generation to happen. If advagg 404 handling is broken
+    // then setting this to false will break your site in bad ways.
+    $conf['advagg_pregenerate_aggregate_files'] = TRUE;
 
     // Set the jQuery UI version.
     $conf['advagg_css_cdn_jquery_ui_version'] = '1.8.7';
@@ -392,7 +403,6 @@ using browser css/js conditionals (js browser conditionals backported from D8
 https://drupal.org/node/865536) then the bundler might not meet your set value.
 
 
-
 NGINX CONFIGURATION
 -------------------
 
@@ -496,3 +506,7 @@ CSS/JS Aggregation is enabled, the first step should be to validate the
 individual CSS and/or JS files using the included advagg_validator module -
 something as simple as an errant unfinished comment in one file may cause entire
 aggregates of files to be ignored.
+
+
+If AdvAgg was installed via drush sometimes directory permissions need to be
+fixed. Using `chown -R` on the advagg directories usually solves this issue.

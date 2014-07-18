@@ -5,9 +5,5 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 
-# Ignore Databases
-backups/
+# Ignore backups folder
 backups/*
-
-# Ignore .DS_Store files
-*.DS_Store
