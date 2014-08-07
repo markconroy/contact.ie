@@ -5,5 +5,5 @@ sites/*/settings*.php
 sites/*/files
 sites/*/private
 
-# Ignore backups folder
-backups/*
+# Ignore tmp folder
+tmp
