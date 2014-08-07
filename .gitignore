@@ -6,4 +6,10 @@ sites/*/files
 sites/*/private
 
 # Ignore tmp folder
-tmp
+.tmp
+
+# Ignore backups
+.dbs
+
+# Ignore DS_Store
+*.DS_Store
