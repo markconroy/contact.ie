@@ -8,6 +8,7 @@ sites/*/private
 # Ignore Temporary folder
 .tmp/
 .tmp/*
+tmp
 
 # Ignore sass-cache
 profiles/adfl/themes/adflzen/.sass-cache/*
@@ -18,3 +19,5 @@ profiles/adfl/themes/adflzen/.sass-cache/*
 
 # Ignore DBs
 .dbs
+backups
+dbs
