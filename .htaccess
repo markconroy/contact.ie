@@ -141,3 +141,8 @@ DirectoryIndex index.php index.html index.htm
     </FilesMatch>
   </IfModule>
 </IfModule>
+
+# Added to force all traffic over SSL-----------
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R,L]
+# end forcing all traffic over ssl--------------
