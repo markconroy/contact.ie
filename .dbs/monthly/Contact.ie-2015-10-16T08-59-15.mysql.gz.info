@@ -1,0 +1,8 @@
+filename = "Contact.ie-2015-10-16T08-59-15"
+description = ""
+datestamp = "1444982367"
+generator = "Backup and Migrate (http://drupal.org/project/backup_migrate)"
+generatorversion = "7.x-2.x"
+sites[0][version] = "7.39"
+sites[0][name] = "Contact.ie"
+sites[0][url] = "http://contact.loc/"
