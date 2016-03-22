@@ -16,7 +16,7 @@
 
 /* Page */
 html, body {
-  background-color: #D95551;
+  background-color: #cd4945;
   color: #000;
 }
 
@@ -53,7 +53,7 @@ ul.tabs li a.active:visited {
 /* Links */
 a,
 a:visited {
-  color: #D95551;
+  color: #cd4945;
 }
 a:hover,
 a:focus,
@@ -112,7 +112,7 @@ h2#site-slogan {
 .breadcrumb a,
 #page > footer a,
 #page > footer a:visited {
- color: #D95551;
+ color: #cd4945;
 }
 .breadcrumb a:hover,
 .breadcrumb a:focus,
@@ -126,23 +126,23 @@ h2#site-slogan {
 /* Menu bar */
 .menu-toggle a {
   color: #fff;
-  background-color: #D95551;
+  background-color: #cd4945;
   text-transform: uppercase;
 }
 #menu-bar-wrapper {
   background: transparent;
 }
 .nav .block-menu ul li a {
-  color: #D95551;
+  color: #140100;
 }
 .nav .block-menu ul a:focus,
 .nav .block-menu ul a:hover,
 .nav .block-menu ul a:active {
-  color: #000;
+  color: #cd4945;
 }
 .nav .block-menu ul li a.active {
   color: #fff;
-  background-color: #D95551;
+  background-color: #cd4945;
 }
 
 /* Superfish Skin - we keep the Superfish skin seperate so we can special case
@@ -273,11 +273,12 @@ h1.node-title a {
 /*Sidebar Second Region*/
 
 .region-sidebar-second {
-    background: none repeat scroll 0 0 #D95551;
+    background: none repeat scroll 0 0 #cd4945;
     color: #000000;
     padding-top: 1em;
 }
-.region-sidebar-second .block-title {
+.region-sidebar-second .block-title,
+.region-sidebar-second .form-item label {
     color: #FFFFFF;
 }
 .region-sidebar-second a:link, a:visited {

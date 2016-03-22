@@ -11,7 +11,6 @@
 /* adding some margin below ShareThis Buttons */
 
 .sharethis-buttons {
-
 	margin-bottom: 1em;
 }
 
@@ -47,7 +46,7 @@ div.view-tweets .views-field-screen-name {
 /*Styling for Contact Politicians View*/
 
 div.view-webform-contact-politicians a, a:visited {
-    color: #D95551;
+    color: #cd4945;
 }
 
 div.view-webform-contact-politicians a:hover, a:focus {
@@ -55,7 +54,7 @@ div.view-webform-contact-politicians a:hover, a:focus {
 }
 
 div.view-webform-contact-politicians a:active {
-    color: #D95551;
+    color: #cd4945;
 }
 
 
@@ -63,7 +62,7 @@ div.view-webform-contact-politicians a:active {
 
 #frontpage-what-do-you-want-to-do {
 	background-color: #EEEFEA;
-	border: .15em solid #D95551;
+	border: .15em solid #cd4945;
 	margin: 1em;
 	-webkit-border-radius: .5em;
 	-moz-border-radius: .5em;
@@ -86,7 +85,7 @@ div.view-webform-contact-politicians a:active {
 	-webkit-border-radius: .5em;
 	-moz-border-radius: .5em;
 	border-radius: .5em;	background-color: white;
-	border: .15em solid #D95551;
+	border: .15em solid #cd4945;
 }
 
 /* Styling for Articles view */
@@ -102,10 +101,10 @@ div.view-webform-contact-politicians a:active {
      margin-top: 6px;
      margin-bottom: 20px;
  }
- 
+
  #view-articles-link {
- 		background: #D95551;
-		width: 100px; 
+ 		background: #cd4945;
+		width: 100px;
 		float: left;
 		border-radius:7px;
 		text-align: center;
@@ -119,7 +118,7 @@ div.view-webform-contact-politicians a:active {
 
 /* Add some spacing between Taxonomy terms */
 .field-type-taxonomy-term-reference .field-item:before {
-    color: #D95551;
+    color: #cd4945;
     content: "#";
     margin-left: 10px;
     margin-right: 2px;
