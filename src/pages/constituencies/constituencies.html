@@ -17,7 +17,7 @@
 
   <ion-list>
     <ion-item *ngFor="let constituency of constituencies">
-      <a href="mailto:{{ constituency.emails }}" target="_blank">{{ constituency.constituency_name }}</a>
+      <ion-icon ios="ios-mail" md="md-mail" color="primary" item-left></ion-icon><a href="mailto:{{ constituency.emails }}" target="_blank">{{ constituency.constituency_name }}</a>
     </ion-item>
   </ion-list>
 

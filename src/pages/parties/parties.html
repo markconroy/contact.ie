@@ -17,7 +17,7 @@
 
   <ion-list>
     <ion-item *ngFor="let party of parties">
-      <ion-icon ios="ios-mail" md="md-mail" color="primary"></ion-icon><a href="mailto:{{ party.emails }}" target="_blank">{{ party.party_name }}</a>
+      <ion-icon ios="ios-mail" md="md-mail" color="primary" item-left></ion-icon><a href="mailto:{{ party.emails }}" target="_blank">{{ party.party_name }}</a>
     </ion-item>
   </ion-list>
 
