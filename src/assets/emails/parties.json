@@ -1,0 +1,26 @@
+[
+  {
+    "party_name": "Fianna Fail",
+    "emails": [
+      "email1@fiannafail.ie",
+      "email2@fiannafail.ie",
+      "email3@fiannafail.ie"
+    ]
+  },
+  {
+    "party_name": "Fine Gael",
+    "emails": [
+      "email1@finegael.ie",
+      "email2@finegael.ie",
+      "email3@finegael.ie"
+    ]
+  },
+  {
+    "party_name": "Labour",
+    "emails": [
+      "email1@labour.ie",
+      "email2@labour.ie",
+      "email3@labour.ie"
+    ]
+  }
+]

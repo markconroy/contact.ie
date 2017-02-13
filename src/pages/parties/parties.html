@@ -1,0 +1,24 @@
+<!--
+  Generated template for the Parties page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Contact Political Parties</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let party of parties">
+      <ion-icon ios="ios-mail" md="md-mail" color="primary"></ion-icon><a href="mailto:{{ party.emails }}" target="_blank">{{ party.party_name }}</a>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
