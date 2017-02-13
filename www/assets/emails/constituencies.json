@@ -1,0 +1,26 @@
+[
+  {
+    "constituency_name": "Laois",
+    "emails": [
+      "email1@laois.ie",
+      "email2@laois.ie",
+      "email3@laois.ie"
+    ]
+  },
+  {
+    "constituency_name": "Galway East",
+    "emails": [
+      "email1@galwayeast.ie",
+      "email2@galwayeast.ie",
+      "email3@galwayeast.ie"
+    ]
+  },
+  {
+    "constituency_name": "Galway West",
+    "emails": [
+      "email1@galwaywest.ie",
+      "email2@galwaywest.ie",
+      "email3@galwaywest.ie"
+    ]
+  }
+]
