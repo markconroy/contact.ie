@@ -7,7 +7,13 @@
   </div>
   <p>Type your message here:</p>
   <div>
-    <textarea name="body"></textarea>
+    <textarea name="body">
+Dear 
+
+
+---
+This message was sent with the help of Contact.ie.
+    </textarea>
   </div>
   <div>
     <input type="submit" value="Send Email" />
