@@ -17,7 +17,7 @@
 
   <ion-list>
     <ion-item *ngFor="let constituency of constituencies">
-      <ion-icon ios="ios-mail" md="md-mail" color="primary" item-left></ion-icon><a href="mailto:{{ constituency.emails }}" target="_blank">{{ constituency.constituency_name }}</a>
+      <ion-icon ios="ios-mail" md="md-mail" color="primary" item-left></ion-icon><a href="mailto:{{ constituency.emails }}?subject=Subject Will Go Here&body=We can put campaign messages here.%0D%0AThis message was sent with the help of%0D%0AContact.ie" target="_blank">{{ constituency.constituency_name }}</a>
     </ion-item>
   </ion-list>
 
