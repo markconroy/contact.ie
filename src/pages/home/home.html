@@ -8,15 +8,20 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Contact.ie!</h2>
-  <p>This app is pretty simple to use.</p>
-  <p>If you want to contact all politicians from a particular party, click on
-    the 'Parties' tab below.
-  </p>
-  <p>If you want to contact all politicians from a particular constituency,
-    click on the 'Constituencies' tab below.
-  </p>
-  <p>If you want to contact all politicians from a particular council,
-    click on the 'Councils' tab below.
-  </p>
+  <h2>Politicians in your Pocket</h2>
+  <p>The easiest way to keep in contact with your elected representatives</p>
+  <ion-list>
+    <ion-item>
+      <button (click)="clickTabsPage()">Contact TDs by Party</button>
+    </ion-item>
+    <ion-item>
+      <button (click)="clickTabsPage()">Contact TDs by Constituency</button>
+    </ion-item>
+    <ion-item>
+      <button (click)="clickTabsPage()">Contact County Councillors</button>
+    </ion-item>
+    <ion-item>
+      <button (click)="clickTabsPage()">Join an Email Campaign</button>
+    </ion-item>
+  </ion-list>
 </ion-content>

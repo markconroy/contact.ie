@@ -1,0 +1,26 @@
+[
+  {
+    "council_name": "Dublin City Council",
+    "emails": [
+      "email1@dublincity.ie",
+      "email2@dublincity.ie",
+      "email3@dublincity.ie"
+    ]
+  },
+  {
+    "council_name": "Laois County",
+    "emails": [
+      "email1@laoiscounty.ie",
+      "email2@laoiscounty.ie",
+      "email3@laoiscounty.ie"
+    ]
+  },
+  {
+    "council_name": "Limerick City and County Council",
+    "emails": [
+      "email1@limerickcityandcounty.ie",
+      "email2@limerickcityandcounty.ie",
+      "email3@limerickcityandcounty.ie"
+    ]
+  }
+]

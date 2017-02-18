@@ -8,6 +8,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { HelpusPage } from '../pages/helpus/helpus';
 import { PartiesPage } from '../pages/parties/parties'
 import { ConstituenciesPage } from '../pages/constituencies/constituencies'
+import { CouncilsPage } from '../pages/councils/councils'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConstituenciesPage } from '../pages/constituencies/constituencies'
     TabsPage,
     HelpusPage,
     PartiesPage,
-    ConstituenciesPage
+    ConstituenciesPage,
+    CouncilsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,7 +34,8 @@ import { ConstituenciesPage } from '../pages/constituencies/constituencies'
     TabsPage,
     HelpusPage,
     PartiesPage,
-    ConstituenciesPage
+    ConstituenciesPage,
+    CouncilsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

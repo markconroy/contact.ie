@@ -3,11 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HelpusPage } from '../pages/helpus/helpus';
-
+import { TabsPage } from '../pages/tabs/tabs';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,7 +24,7 @@ export class MyApp {
   constructor(public platform: Platform) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // List the pages that will appear in the menu.
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'About Us', component: AboutPage },
