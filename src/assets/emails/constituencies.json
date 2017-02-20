@@ -1,26 +1,282 @@
 [
   {
-    "constituency_name": "Laois",
+    "constituency_name": "Carlow-Kilkenny",
     "emails": [
-      "email1@laois.ie",
-      "email2@laois.ie",
-      "email3@laois.ie"
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Cavan-Monaghan",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Clare",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Cork East",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Cork North-Central",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Cork North-West",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Cork South-Central",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Cork South-West",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Donegal",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin Bay North",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin Bay South",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin Central",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin Fingal",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin Mid West",
+    "emails": [
+      "email@email.com",
+      "email@email.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin North-West",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin Rathdown",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin South-Central",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin South-West",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dublin West",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Dún Laoghaire",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
     ]
   },
   {
     "constituency_name": "Galway East",
     "emails": [
-      "email1@galwayeast.ie",
-      "email2@galwayeast.ie",
-      "email3@galwayeast.ie"
+      "email@email.com",
+      "email2@email2.com"
     ]
   },
   {
     "constituency_name": "Galway West",
     "emails": [
-      "email1@galwaywest.ie",
-      "email2@galwaywest.ie",
-      "email3@galwaywest.ie"
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Kerry",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Kildare North",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Kildare South",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Laois",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Limerick City",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Limerick County",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Longford-Westmeath",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Louth",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Mayo",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Meath East",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Meath West",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Offaly",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Roscommon-Galway",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Sligo-Leitrim",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Tipperary",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Waterford",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Wexford",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
+    ]
+  },
+  {
+    "constituency_name": "Wicklow",
+    "emails": [
+      "email@email.com",
+      "email2@email2.com"
     ]
   }
 ]

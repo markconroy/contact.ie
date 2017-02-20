@@ -1,26 +1,86 @@
 [
   {
-    "party_name": "Fianna Fail",
+    "party_name": "Fianna Fáil",
     "emails": [
-      "email1@fiannafail.ie",
-      "email2@fiannafail.ie",
-      "email3@fiannafail.ie"
+      "email1@email.com",
+      "email2@email.com"
     ]
   },
   {
     "party_name": "Fine Gael",
     "emails": [
-      "email1@finegael.ie",
-      "email2@finegael.ie",
-      "email3@finegael.ie"
+      "email1@email.com",
+      "email2@email.com"
     ]
   },
   {
-    "party_name": "Labour",
+    "party_name": "Green Party",
     "emails": [
-      "email1@labour.ie",
-      "email2@labour.ie",
-      "email3@labour.ie"
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Independent",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Sinn Féin",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Fianna Fáil",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Fine Gael",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Labour Party",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "People Before Profit Alliance",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Social Democrats",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Anti-Austerity Alliance - People Before Profit",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
+    ]
+  },
+  {
+    "party_name": "Independents 4 Change",
+    "emails": [
+      "email1@email.com",
+      "email2@email.com"
     ]
   }
 ]
