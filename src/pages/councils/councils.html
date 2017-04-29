@@ -11,7 +11,7 @@
 
   <ion-list>
     <ion-item *ngFor="let council of councils">
-      <ion-icon ios="ios-mail" md="md-mail" color="primary" item-left></ion-icon><a href="mailto:{{ council.emails }}?subject=Subject Will Go Here&body=We can put campaign messages here.%0D%0AThis message was sent with the help of%0D%0AContact.ie" target="_blank">{{ council.council_name }}</a>
+      <ion-icon ios="ios-mail" md="md-mail" color="primary" item-left></ion-icon><a href="mailto:{{ council.emails }}" target="_blank">{{ council.council_name }}</a>
     </ion-item>
   </ion-list>
 
