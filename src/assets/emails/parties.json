@@ -2,85 +2,192 @@
   {
     "party_name": "Fianna Fáil",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "bobby.aylward@oireachtas.ie",
+      "john.brassil@oireachtas.ie",
+      "declan.breathnach@oireachtas.ie",
+      "james.browne@oireachtas.ie",
+      "mary.butler@oireachtas.ie",
+      "thomas.byrne@oireachtas.ie",
+      "jackie.cahill@oireachtas.ie",
+      "dara.calleary@oireachtas.ie",
+      "pat.casey@oireachtas.ie",
+      "shane.cassells@oireachtas.ie",
+      "lisa.chambers@oireachtas.ie",
+      "jack.chambers@oireachtas.ie",
+      "niall.collins@oireachtas.ie",
+      "barry.cowen@oireachtas.ie",
+      "john.curran@oireachtas.ie",
+      "stephen.donnelly@oireachtas.ie",
+      "timmy.dooley@oireachtas.ie",
+      "sean.fleming@oireachtas.ie",
+      "patthecope.gallagher@oireachtas.ie",
+      "sean.haughey@oireachtas.ie",
+      "billy.kelleher@oireachtas.ie",
+      "john.lahart@oireachtas.ie",
+      "james.lawless@oireachtas.ie",
+      "marc.macsharry@oireachtas.ie",
+      "micheal.martin@oireachtas.ie",
+      "charlie.mcconalogue@oireachtas.ie",
+      "michael.mcgrath@oireachtas.ie",
+      "john.mcguinness@oireachtas.ie",
+      "aindrias.moynihan@oireachtas.ie",
+      "michael.moynihan@oireachtas.ie",
+      "eugene.murphy@oireachtas.ie",
+      "margaret.murphyomahony@oireachtas.ie",
+      "eamon.ocuiv@oireachtas.ie",
+      "darragh.obrien@oireachtas.ie",
+      "jim.ocallaghan@oireachtas.ie",
+      "willie.odea@oireachtas.ie",
+      "kevin.okeeffe@oireachtas.ie",
+      "fiona.oloughlin@oireachtas.ie",
+      "frank.orourke@oireachtas.ie",
+      "anne.rabbitte@oireachtas.ie",
+      "eamon.scanlon@oireachtas.ie",
+      "brendan.smith@oireachtas.ie",
+      "niamh.smyth@oireachtas.ie",
+      "robert.troy@oireachtas.ie"
     ]
   },
   {
     "party_name": "Fine Gael",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "maria.bailey@oireachtas.ie",
+      "sean.barrett@oireachtas.ie",
+      "pat.breen@oireachtas.ie",
+      "colm.brophy@oireachtas.ie",
+      "richard.bruton@oireachtas.ie",
+      "peter.burke@oireachtas.ie",
+      "catherine.byrne@oireachtas.ie",
+      "ciaran.cannon@oireachtas.ie",
+      "joe.carey@oireachtas.ie",
+      "marcella.corcorankennedy@oireachtas.ie",
+      "simon.coveney@oireachtas.ie",
+      "michael.creed@oireachtas.ie",
+      "jim.daly@oireachtas.ie",
+      "michael.darcy@oireachtas.ie",
+      "john.deasy@oireachtas.ie",
+      "pat.deering@oireachtas.ie",
+      "regina.doherty@oireachtas.ie",
+      "paschal.donohoe@oireachtas.ie",
+      "andrew.doyle@oireachtas.ie",
+      "bernard.durkan@oireachtas.ie",
+      "damien.english@oireachtas.ie",
+      "alan.farrell@oireachtas.ie",
+      "frances.fitzgerald@oireachtas.ie",
+      "peterm.fitzpatrick@oireachtas.ie",
+      "charles.flanagan@oireachtas.ie",
+      "brendan.griffin@oireachtas.ie",
+      "simon.harris@oireachtas.ie",
+      "martin.heydon@oireachtas.ie",
+      "heather.humphreys@oireachtas.ie",
+      "paul.kehoe@oireachtas.ie",
+      "enda.kenny@oireachtas.ie",
+      "sean.kyne@oireachtas.ie",
+      "josepha.madigan@oireachtas.ie",
+      "helen.mcentee@oireachtas.ie",
+      "joe.mchugh@oireachtas.ie",
+      "tony.mcloughlin@oireachtas.ie",
+      "mary.mitchelloconnor@oireachtas.ie",
+      "eoghan.murphy@oireachtas.ie",
+      "dara.murphy@oireachtas.ie",
+      "hildegarde.naughton@oireachtas.ie",
+      "tom.neville@oireachtas.ie",
+      "michael.noonan@oireachtas.ie",
+      "kate.oconnell@oireachtas.ie",
+      "patrick.odonovan@oireachtas.ie",
+      "fergus.odowd@oireachtas.ie",
+      "johnpaul.phelan@oireachtas.ie",
+      "michael.ring@oireachtas.ie",
+      "noel@noelrock.ie",
+      "david.stanton@oireachtas.ie",
+      "leo.varadkar@oireachtas.ie",
+      "maria.bailey@oireachtas.ie",
+      "sean.barrett@oireachtas.ie"
     ]
   },
   {
     "party_name": "Green Party",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "eamon.ryan@oireachtas.ie",
+      "catherine.martin@oireachtas.ie"
     ]
   },
   {
     "party_name": "Independent",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "tommy.broughan@oireachtas.ie",
+      "sean.canney@oireachtas.ie",
+      "michael.collins@oireachtas.ie",
+      "joan.collins@oireachtas.ie",
+      "catherine.connolly@oireachtas.ie",
+      "clare.daly@oireachtas.ie",
+      "michael.fitzmaurice@oireachtas.ie",
+      "noel.grealish@oireachtas.ie",
+      "john.halligan@oireachtas.ie",
+      "michael.harty@oireachtas.ie",
+      "seamus.healy@oireachtas.ie",
+      "danny.healy-rae@oireachtas.ie",
+      "michael.healy-rae@oireachtas.ie",
+      "michael.lowry@oireachtas.ie",
+      "mattie.mcgrath@oireachtas.ie",
+      "finian.mcgrath@oireachtas.ie",
+      "kevin.moran@oireachtas.ie",
+      "Denis.Naughten@oireachtas.ie",
+      "maureen.osullivan@oireachtas.ie",
+      "thomas.pringle@oireachtas.ie",
+      "shane.ross@oireachtas.ie",
+      "mick.wallace@oireachtas.ie",
+      "katherine.zappone@oireachtas.ie"
     ]
   },
   {
     "party_name": "Sinn Féin",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
-    ]
-  },
-  {
-    "party_name": "Fianna Fáil",
-    "emails": [
-      "email1@email.com",
-      "email2@email.com"
-    ]
-  },
-  {
-    "party_name": "Fine Gael",
-    "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "gerry.adams@oireachtas.ie",
+      "pearse.doherty@oireachtas.ie",
+      "dessie.ellis@oireachtas.ie",
+      "martin.ferris@oireachtas.ie",
+      "marylou.mcdonald@oireachtas.ie",
+      "caoimhghin.ocaolain@oireachtas.ie",
+      "aengus.osnodaigh@oireachtas.ie",
+      "jonathan.obrien@oireachtas.ie",
+      "brian.stanley@oireachtas.ie",
+      "peadar.toibin@oireachtas.ie"
     ]
   },
   {
     "party_name": "Labour Party",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "joan.burton@oireachtas.ie",
+      "brendan.howlin@oireachtas.ie",
+      "alan.kelly@oireachtas.ie",
+      "jan.osullivan@oireachtas.ie",
+      "willie.penrose@oireachtas.ie",
+      "brendan.ryan@oireachtas.ie",
+      "sean.sherlock@oireachtas.ie"
     ]
   },
   {
     "party_name": "People Before Profit Alliance",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "brid.smith@oireachtas.ie"
     ]
   },
   {
     "party_name": "Social Democrats",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "catherine.murphy@oireachtas.ie",
+      "roisin.shortall@oireachtas.ie"
     ]
   },
   {
-    "party_name": "Anti-Austerity Alliance - People Before Profit",
+    "party_name": "Solidarity",
     "emails": [
-      "email1@email.com",
-      "email2@email.com"
-    ]
-  },
-  {
-    "party_name": "Independents 4 Change",
-    "emails": [
-      "email1@email.com",
-      "email2@email.com"
+      "mick.barry@oireachtas.ie",
+      "richard.boydbarrett@oireachtas.ie",
+      "ruth.coppinger@oireachtas.ie",
+      "gino.kenny@oireachtas.ie",
+      "paul.murphy@oireachtas.ie"
     ]
   }
 ]

@@ -3,12 +3,6 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Constituencies page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-constituencies',
   templateUrl: 'constituencies.html'
@@ -27,7 +21,6 @@ export class ConstituenciesPage {
       }
     );
   }
-
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConstituenciesPage');
