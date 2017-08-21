@@ -1,0 +1,8 @@
+/**
+ * @file
+ * This file creates the styling for the table element.
+ */
+
+table {
+  @include vertical-rhythm-text();
+}

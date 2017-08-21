@@ -1,0 +1,8 @@
+/**
+ * @file
+ * This file is used to style blockquotes.
+ */
+
+blockquote {
+  @include vertical-rhythm-text();
+}

@@ -1,0 +1,41 @@
+/**
+ * @file
+ * This file lists/imports the mixins that we have created for the theme.
+ */
+
+@import "family"; // Helper mixins from http://lukyvj.github.io/family.scss/
+
+@mixin vertical-rhythm-text {
+  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+}
+
+@mixin space-above-padding {
+  padding-top: $base-line-height;
+  @include breakpoint($medium) {
+    padding-top: $base-line-height * 3;
+  }
+  @include breakpoint($large) {
+    padding-top: $base-line-height * 4;
+  }
+}
+
+@mixin space-below-padding {
+  padding-bottom: $base-line-height;
+  @include breakpoint($medium) {
+    padding-bottom: $base-line-height * 3;
+  }
+  @include breakpoint($large) {
+    padding-bottom: $base-line-height * 4;
+  }
+}
+
+@mixin space-below-margin {
+  margin-bottom: $base-line-height;
+  @include breakpoint($medium) {
+    margin-bottom: $base-line-height * 2;
+  }
+  @include breakpoint($large) {
+    margin-bottom: $base-line-height * 3;
+  }
+}

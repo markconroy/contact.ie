@@ -1,0 +1,36 @@
+/**
+ * @file
+ * This file creates helper classes that can be added to items to show/hide
+ * them depending on the screen width being viewed.
+ */
+
+.small-screen-only {
+  @include breakpoint($medium) {
+    display: none;
+  }
+  @include breakpoint($large) {
+    display: none;
+  }
+}
+
+.small-medium-screen-only {
+  @include breakpoint($large) {
+    display: none;
+  }
+}
+
+.large-screen-only {
+  display: none;
+
+  @include breakpoint($large) {
+    display: block;
+  }
+}
+
+.large-medium-screen-only {
+  display: none;
+
+  @include breakpoint($medium) {
+    display: block;
+  }
+}

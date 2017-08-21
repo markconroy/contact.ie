@@ -1,0 +1,15 @@
+/**
+ * @file
+ * This file is used to get things started.
+ */
+
+// Box Sizing all the things
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

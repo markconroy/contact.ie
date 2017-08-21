@@ -1,0 +1,48 @@
+/**
+ * @file
+ * This file creates the out layout of the site and all the regions.
+ */
+
+// This max-width variable is the max width of the main content area.
+// We set it here one can then it is used by Susy and also by the
+// .layout-contained class.
+$max-width: 1200px;
+$columns: 12;
+$column-ratio: 100 / $columns;
+$column: $column-ratio + %; // To use: width: 3 * $column;
+
+/* The Layout Contained class is a handy one for wrapper around all elements
+that we want to have centered on the page, but also want them to have 100%
+width backgrounds so we can put a full widh background colour on them.
+
+For example, you might want a 100% width red background on the navigation,
+but want the menu links 'contained' within the width of the content area. */
+.layout-contained {
+  max-width: $max-width;
+  margin: auto;
+  &__inner {
+    @include breakpoint($large) {
+      padding: 0 10%;
+    }
+  }
+}
+
+@mixin width($width, $space-left, $space-right) {
+  @include breakpoint($large) {
+    margin-left: $space-left;
+    margin-right: $space-right;
+    max-width: $width;
+  }
+}
+
+.layout-10-centered {
+  @include width(10 * $column, auto, auto);
+}
+
+.layout-6-centered {
+  @include width(6 * $column, auto, auto);
+}
+
+.padding {
+  padding: 0 1rem;
+}

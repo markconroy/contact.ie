@@ -1,0 +1,8 @@
+/**
+ * @file
+ * This file is used to style p tags.
+ */
+
+p {
+  @include vertical-rhythm-text();
+}

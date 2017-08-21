@@ -1,0 +1,36 @@
+/**
+ * @file
+ * This file lists the colours that we are going to use in the theme.
+ *
+ * Please keep the number of colours to a minimum for sake of maintainability.
+ *
+ * If using greys, let's not have 50 shades of them.
+ *
+ * We put a prefix on all our colours here so they show
+ * up beside each other when typing '$c-...' in Atom with the Pigments
+ * plugin.
+ */
+
+/* Theme Colours */
+$c-primary:          #CD4945;
+$c-primary--light:   lighten($c-primary, 20%);
+$c-primary--dark:    darken($c-primary, 20%);
+
+$c-secondary:        #856622;
+$c-secondary--light:  lighten($c-secondary, 20%);
+$c-secondary--dark:   darken($c-secondary, 20%);
+
+$c-tertiary:         #ff00ff;
+$c-tertiary--light:   lighten($c-tertiary, 20%);
+$c-tertiary--dark:    darken($c-tertiary, 20%);
+
+/* Greys */
+$c-white: #ffffff;
+$c-grey--lightest: #999999;   // Lightest Grey
+$c-grey--lighter: #888888;    // Lighter Grey
+$c-grey--light: #777777;      // Light Grey
+$c-grey: #555555;             // Grey
+$c-grey--dark: #444444;       // Dark Grey
+$c-grey--darker: #333333; // Darker Grey
+$c-grey--darkest: #111111;    // Darkest Grey
+$c-black: #000000;

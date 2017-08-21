@@ -1,0 +1,13 @@
+/**
+ * @file
+ * This file is used to style the list items.
+ */
+
+ul, ol {
+  @include vertical-rhythm-text();
+}
+
+ul ul, ol ol, ul ol, ol ul {
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+}

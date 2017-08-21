@@ -1,0 +1,38 @@
+/**
+ * @file
+ * This file lists/imports the fonts that we are going to use in the theme.
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,700');
+
+//
+// Font faces, stacks and sizes.
+//
+
+$base-font-size:   18px; // The font size set on the root html element.
+$base-line-height: 1.5 * $base-font-size; // This line-height determines the basic unit of vertical rhythm.
+
+$h1-font-size: 2.61 * $base-font-size;
+$h2-font-size: 1.61 * $base-font-size;
+$h3-font-size: 1.25 * $base-font-size;
+$h4-font-size: 1    * $base-font-size;
+$h5-font-size: 1    * $base-font-size;
+$h6-font-size: 0.85 * $base-font-size;
+
+// First, let's create some font stacks.
+$times-new-roman: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+$times:           Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+$georgia:         Georgia, "Times New Roman", "DejaVu Serif", serif;
+
+$verdana:         Verdana, Tahoma, "DejaVu Sans", sans-serif;
+$tahoma:          Tahoma, Verdana, "DejaVu Sans", sans-serif;
+$helvetica:       Helvetica, Arial, "Nimbus Sans L", sans-serif;
+$arial:           Arial, Helvetica, "Nimbus Sans L", sans-serif;
+
+// For an explanation of why "sans-serif" is at the end of this list, see
+// http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+$courier:         "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+
+// Now create some variables for the font stacks we want to use on this site.
+$font1: Roboto, $arial;
+$font2: $font1;

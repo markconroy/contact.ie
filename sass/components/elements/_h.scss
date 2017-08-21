@@ -1,0 +1,81 @@
+/**
+ * @file
+ * This file creates the styling for the h elements.
+ */
+
+.heading {
+  font-family: $font2;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $c-grey--darkest;
+  font-family: $font2;
+  font-weight: 600;
+  a {
+    color: $c-grey--darkest;
+  }
+}
+
+h1, .alpha {
+  font-size: $h1-font-size / 2;
+  line-height: 1.5rem;
+  margin-bottom: .75rem;
+  margin-top: 0rem;
+  @include breakpoint($large) {
+    font-size: $h1-font-size;
+    line-height: 3rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0rem;
+  }
+}
+h2, .beta {
+  font-size: $h2-font-size / 2;
+  line-height: 3rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  @include breakpoint($large) {
+    font-size: $h2-font-size;
+  }
+}
+h3, .gamma {
+  font-size: $h3-font-size / 1.75;
+  line-height: 3rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  @include breakpoint($large) {
+    font-size: $h3-font-size;
+  }
+}
+h4, .delta {
+  font-size: $h4-font-size / 1.75;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  @include breakpoint($large) {
+    font-size: $h4-font-size;
+  }
+}
+h5, .epsilon {
+  font-size: $h5-font-size / 1.75;
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0rem;
+  @include breakpoint($large) {
+    font-size: $h5-font-size;
+  }
+}
+h6, .zeta {
+  font-size: $h6-font-size / 2;
+  line-height: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0rem;
+  @include breakpoint($large) {
+    font-size: $h6-font-size;
+  }
+}

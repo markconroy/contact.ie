@@ -1,0 +1,24 @@
+/**
+ * @file
+ * This file that creates the CSS for the header region.
+ */
+
+.header {
+  padding: $base-line-height 0;
+}
+
+.header__inner {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.header__inner .menu-toggle {
+  background: $c-black;
+  border: 0;
+  color: $c-white;
+  font-weight: bold;
+  order: 2;
+  text-transform: uppercase;
+}

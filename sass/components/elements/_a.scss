@@ -1,0 +1,13 @@
+/**
+ * @file
+ * This file creates the styling for the a elements.
+ */
+
+a {
+  color: $c-grey--darkest;
+  text-decoration: none;
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}
