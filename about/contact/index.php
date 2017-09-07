@@ -42,8 +42,8 @@ $description = "Get in Contact with Contact.ie";
   <p>We have:
     <ul>
       <li>an email address: info@contact.ie</li>
-      <li>a Twitter account: <a href="https://twitter.com/contact_ie">@contact_ie</a></li>
-      <li>a Facebook page: <a href="http://facebook.com/contact.ie/">facebook.com/contact.ie</a></li>
+      <li><a href="https://twitter.com/contact_ie">a Twitter account: @contact_ie</a></li>
+      <li><a href="http://facebook.com/contact.ie/">a Facebook page: facebook.com/contact.ie</a></li>
     </ul>
   </p>
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/faqs.php'; ?>
