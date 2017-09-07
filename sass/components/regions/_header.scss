@@ -14,11 +14,18 @@
   justify-content: space-between;
 }
 
-.header__inner .menu-toggle {
-  background: $c-black;
-  border: 0;
-  color: $c-white;
-  font-weight: bold;
-  order: 2;
-  text-transform: uppercase;
+.header nav {
+  @include breakpoint($large) {
+    flex-basis: 50%;
+    margin-left: auto;
+  }
+}
+.header .menu {
+  @include breakpoint($large) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.header .menu-item {
+  list-style: none;
 }

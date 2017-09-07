@@ -7,7 +7,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * SUPPLEMENTARY RESTRICTION BY MARK CONROY, AUTHOR OF CURRENT Work
+ * SUPPLEMENTARY RESTRICTION BY MARK CONROY, AUTHOR OF CURRENT WORK
  * WHILST I AM MAKING THIS CODE FREELY AVAILABLE FOR USE, I AM RESTRICTING
  * THE USE OF IT FOR ANY PURPOSES THAT MIGHT BE CONSIDERED 'ALT-RIGHT' OR
  * 'FAR RIGHT'. TO BE CLEAR, YOU MAY NOT CREATE SOMETHING FROM THIS SOFTWARE
@@ -24,11 +24,13 @@
  */
 ?>
 
-<header class="header">
-  <div class="layout-contained padding">
-    <div class="header__inner">
-      <div class="alpha"><a href="/">Contact.ie</a></div>
-      <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav.php'; ?>
-    </div>
-  </div>
-</header>
+<?php $title = 'Contact TDs and County Councillors in Ireland'; ?>
+<?php $description = 'The quickest way to Contact TDs and County Councillors in Ireland'; ?>
+
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/head-n-header.php'; ?>
+
+  <main class="layout-contained padding">
+    <h1>So, who do you want to contact?</h1>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/nav-contacts.php'; ?>
+  </main>
+  <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
