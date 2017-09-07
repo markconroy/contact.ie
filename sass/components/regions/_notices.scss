@@ -1,0 +1,16 @@
+/**
+ * @file
+ * This file that creates the CSS for the notices region.
+ */
+
+.notices {
+  background: $c-grey--lightest;
+  padding: $base-line-height 0;
+}
+
+.notices__inner {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

@@ -316,4 +316,26 @@ ul ul, ol ol, ul ol, ol ul {
 .header .menu-item {
   list-style: none; }
 
+/**
+ * @file
+ * This file that creates the CSS for the notices region.
+ */
+.notices {
+  background: #eaeaea;
+  padding: 27px 0; }
+
+.notices__inner {
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
 /* Classes */
