@@ -39,6 +39,13 @@ $description = "Get in Contact with Contact.ie";
 <main class="layout-contained padding">
   <h1>Contact Contact.ie</h1>
   <p>Please be aware, Contact.ie is fully volunteer run in our spare time. We may not have time to respond to you; if this is the case, we are sorry.</p>
+  <p>We have:
+    <ul>
+      <li>an email address: info@contact.ie</li>
+      <li>a Twitter account: <a href="https://twitter.com/contact_ie">@contact_ie</a></li>
+      <li>a Facebook page: <a href="http://facebook.com/contact.ie/">facebook.com/contact.ie</a></li>
+    </ul>
+  </p>
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/faqs.php'; ?>
 </main>
 <?php include $_SERVER['DOCUMENT_ROOT'] . '/includes/footer.php'; ?>
