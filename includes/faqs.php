@@ -37,6 +37,8 @@
     <li><a href="/lists/email-councils">Emails of Town and County Councillors</a></li>
   </ul>
 </p>
+<h3>Who gets a copy of each email?</h3>
+<p>An email is sent from your email client to each recipient (e.g. all Galway East TDs, All Fianna Fail TDs, etc). A further email sent via bcc is sent to Contact.ie so we can ensure our service is not being abused. We use bcc so we cannot get a copy of any replies to your email. Replies are between you and the intended recipients.</p>
 <h3>What cookies do you store on this site?</h3>
 <p>We value your privacy. So much so that <strong>we do not use any cookies on this site whatsoever</strong>.</p>
 <h3>I'd like to create a copy of this site for another purpose/juristiction. Can I?</h3>
