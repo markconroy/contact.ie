@@ -43,7 +43,7 @@
     foreach ($email_addresses as $email_address) {
       print $email_address . ',';
     }
-    print '">Email All ' . $item['council_name'] . ' Councillors</a></li>';
+    print '?bcc=sent@contact.ie">Email All ' . $item['council_name'] . ' Councillors</a></li>';
   }
   ?>
 </ul>
