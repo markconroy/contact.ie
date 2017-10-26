@@ -26,8 +26,8 @@
 
 <nav>
   <ul class="menu menu--main">
-    <li class="menu-item"><a href="/contact">Contact Politicians</a></li>
-    <li class="menu-item"><a href="/about">About Us</a></li>
-    <li class="menu-item"><a href="/about/contact">Contact Us</a></li>
+    <li class="menu-item"><a href="/contact/">Contact Politicians</a></li>
+    <li class="menu-item"><a href="/about/">About Us</a></li>
+    <li class="menu-item"><a href="/about/contact/">Contact Us</a></li>
   </ul>
 </nav>
