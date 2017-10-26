@@ -26,8 +26,8 @@
 
 <nav>
   <ul>
-    <li><a href="/contact/parties">Contact TDs by Party</a></li>
-    <li><a href="/contact/constituencies">Contact TDs by Constituency</a></li>
-    <li><a href="/contact/councillors">Contact Local Councillors</a></li>
+    <li><a href="/contact/parties/">Contact TDs by Party</a></li>
+    <li><a href="/contact/constituencies/">Contact TDs by Constituency</a></li>
+    <li><a href="/contact/councillors/">Contact Local Councillors</a></li>
   </ul>
 </nav>
