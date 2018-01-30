@@ -47,7 +47,7 @@
 	
 	$mundistricts = $item['district'];
 	print '<li>' . $item['council_name'] . '</li>';
-
+/*
 	if(!empty($mundistricts)){
 		for ($i=0; $i<count($mundistricts); $i++) {
 			print '<ul><li><a href="mailto:';
@@ -57,6 +57,7 @@
 			print '?bcc=sent@contact.ie">Email All ' . $mundistricts[$i] . ' Councillors</a></li>';
 		}
 	  }
+	*/  
   }
  
   ?>
