@@ -45,18 +45,18 @@
     }
     print '?bcc=sent@contact.ie">Email All ' . $item['council_name'] . ' Councillors</a></li>';
 	
+	/*
 	$mundistricts = $item['district'];
 	print '<li>' . $item['council_name'] . '</li>';
 
-	if(!empty($mundistricts)){
-		for ($i=0; $i<count($mundistricts); $i++) {
-			print '<ul><li><a href="mailto:';
-			foreach ($mundistricts[$i] as $district) {
-				print $district . ',';
-			}
-			print '?bcc=sent@contact.ie">Email All ' . $mundistricts[$i] . ' Councillors</a></li>';
+	for ($i=0; $i<count($mundistricts); $i++) {
+		print '<ul><li><a href="mailto:';
+		foreach ($mundistricts[$i] as $district) {
+			print $district . ',';
 		}
-	  }
+		print '?bcc=sent@contact.ie">Email All ' . $mundistricts[$i] . ' Councillors</a></li>';
+	}
+   */
 
   }
  
