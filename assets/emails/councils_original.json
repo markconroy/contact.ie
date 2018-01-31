@@ -1,7 +1,6 @@
 [
   {
     "council_name": "Carlow County Council",
-	"district": "",
     "emails": [
       "aahern@carlow.ie",
       "fbrowne@carlow.ie",
@@ -25,12 +24,12 @@
   },
   {
     "council_name": "NOT WORKING - Dublin City Council",
-	"district": "",
-    "emails": ""
+    "emails": [
+
+    ]
   },
   {
     "council_name": "Dún Laoghaire–Rathdown County Council",
-	"district": "",
     "emails": [
       "jbailey@cllr.dlrcoco.ie",
       "mbailey@cllr.dlrcoco.ie",
@@ -76,7 +75,6 @@
   },
   {
     "council_name": "Fingal County Council",
-	"district": "",
     "emails": [
       "Ken.Farrell@cllrs.fingal.ie",
       "Tony.Murphy@cllrs.fingal.ie",
@@ -122,12 +120,12 @@
   },
   {
     "council_name": "NOT WORKING - South Dublin County Council",
-	"district": "",
-    "emails": ""
+    "emails": [
+
+    ]
   },
   {
     "council_name": "Kildare County Council",
-	"district": "",
     "emails": [
       "breslin.aoife@gmail.com",
       "mdaltonmcc@eircom.net",
@@ -172,7 +170,6 @@
   },
   {
     "council_name": "Kilkenny County Council",
-	"district": "",
     "emails": [
       "maryhildacavanagh@eircom.net",
       "patdmillea@eircom.net",
@@ -202,7 +199,6 @@
   },
   {
     "council_name": "Laois County Council",
-	"district": "",
     "emails": [
       "pbracken@laoiscouncillors.ie",
       "davidgoodwinmcc@eircom.net",
@@ -227,7 +223,6 @@
   },
   {
     "council_name": "Longford County Council",
-	"district": "",
     "emails": [
       "mcahill@longfordcoco.ie",
       "markcasey@longfordcoco.ie",
@@ -251,7 +246,6 @@
   },
   {
     "council_name": "Louth County Council",
-	"district": "",
     "emails": [
       "tom.cunningham@louthcoco.ie",
       "colm.markey@louthcoco.ie",
@@ -288,60 +282,6 @@
   },
   {
     "council_name": "Meath County Council",
-	"district": {
-		"Ashbourne": [
-		  "joe.bonner@members.meathcoco.ie",
-		  "suzanne.jamal@members.meathcoco.ie",
-		  "claire.odriscoll@members.meathcoco.ie",
-		  "darren.orourke@members.meathcoco.ie",
-		  "sean.smith@members.meathcoco.ie",
-		  "alan.tobin@members.meathcoco.ie"		
-		],
-		"Kells": [
-		  "eugene.cassidy@members.meathcoco.ie",
-		  "sean.drew@members.meathcoco.ie",
-		  "michael.gallagher@members.meathcoco.ie",
-		  "david.gilroy@members.meathcoco.ie",
-		  "johnny.guirke@members.meathcoco.ie",
-		  "bryan.reilly@members.meathcoco.ie",
-		  "sarah.reilly@members.meathcoco.ie"		
-		],
-		"Laytown-Bettystown": [
-		  "eimear.ferguson@members.meathcoco.ie",
-		  "wayne.harding@members.meathcoco.ie",
-		  "tom.kelly@members.meathcoco.ie",
-		  "sharon.Keogan@members.meathcoco.ie",
-		  "stephen.mckee@members.meathcoco.ie",
-		  "paddy.meade@members.meathcoco.ie",
-		  "sharon.tolan@members.meathcoco.ie"		
-		],
-		"Navan": [
-		  "sinead.burke@members.meathcoco.ie",
-		  "padraig.fitzsimons@members.meathcoco.ie",
-		  "francis.deane@members.meathcoco.ie",
-		  "wayne.forde@members.meathcoco.ie",
-		  "jim.holloway@members.meathcoco.ie",
-		  "joe.reilly@members.meathcoco.ie",
-		  "tommy.reilly@members.meathcoco.ie"		
-		],
-		"Ratoath": [
-		  "brian.fitzgerald@members.meathcoco.ie",
-		  "nick.killian@members.meathcoco.ie",
-		  "maria.murphy@members.meathcoco.ie",
-		  "gerry.oconnor@members.meathcoco.ie",
-		  "maria.okane@members.meathcoco.ie",
-		  "damien.oreilly@members.meathcoco.ie",
-		  "gillian.toole@members.meathcoco.ie"		
-		],
-		"Trim": [
-		  "enda.flynn@members.meathcoco.ie",
-		  "joe.fox@members.meathcoco.ie",
-		  "noel.french@members.meathcoco.ie",
-		  "trevor.golden@members.meathcoco.ie",
-		  "caroline.lynch@members.meathcoco.ie",
-		  "ronan.mckenna@members.meathcoco.ie"		
-		]
-	},
     "emails": [
       "joe.bonner@members.meathcoco.ie",
       "suzanne.jamal@members.meathcoco.ie",
@@ -364,7 +304,7 @@
       "paddy.meade@members.meathcoco.ie",
       "sharon.tolan@members.meathcoco.ie",
       "sinead.burke@members.meathcoco.ie",
-      "padraig.fitzsimons@members.meathcoco.ie",
+      "shane.cassells@members.meathcoco.ie",
       "francis.deane@members.meathcoco.ie",
       "wayne.forde@members.meathcoco.ie",
       "jim.holloway@members.meathcoco.ie",
@@ -387,7 +327,6 @@
   },
   {
     "council_name": "Offaly County Council",
-	"district": "",
     "emails": [
       "cllrjohncarroll@eircom.net",
       "john@johnclendennen.com",
@@ -412,7 +351,6 @@
   },
   {
     "council_name": "Westmeath County Council",
-	"district": "",
     "emails": [
       "fkeena@westmeathcoco.ie",
       "aengus.orourke@westmeathcoco.ie",
@@ -438,7 +376,6 @@
   },
   {
     "council_name": "Wexford County Council",
-	"district": "",
     "emails": [
       "james.browne@wexfordmcc.ie",
       "kathleen.coddnolan@wexfordmcc.ie",
@@ -478,7 +415,6 @@
   },
   {
     "council_name": "Wicklow County Council",
-	"district": "",
     "emails": [
       "tomannesley@yahoo.co.uk",
       "SBourke@wicklowcoco.ie",
@@ -515,7 +451,6 @@
   },
   {
     "council_name": "Clare County Council",
-	"district": "",
     "emails": [
       "breene@eircom.net",
       "jny.flynn@gmail.com",
@@ -548,7 +483,6 @@
   },
   {
     "council_name": "Cork City Council",
-	"district": "",
     "emails": [
       "Stephen_Cunningham@corkcity.ie",
       "ted_tynan@corkcity.ie",
@@ -585,7 +519,6 @@
   },
   {
     "council_name": "Cork County Council",
-	"district": "",
     "emails": [
       "tim.lombard@corkcoco.ie",
       "pmom@eircom.net",
@@ -645,7 +578,6 @@
   },
   {
     "council_name": "Kerry County Council",
-	"district": "",
     "emails": [
       "cllrrobert.beasley@kerrycoco.ie",
       "cllrjbrassil@gmail.com",
@@ -681,7 +613,6 @@
   },
   {
     "council_name": "Limerick City and County Council",
-	"district": "",
     "emails": [
       "shane.clifford@limerick.ie",
       "marian.hurley@limerick.ie",
@@ -727,7 +658,6 @@
   },
   {
     "council_name": "Tipperary County Council",
-	"district": "",
     "emails": [
       "customerservices@tipperarycoco.ie",
       "andy.moloney@tipperarycoco.ie",
@@ -772,7 +702,6 @@
   },
   {
     "council_name": "Waterford City and County Council",
-	"district": "",
     "emails": [
       "cllrbbrennan@waterfordcouncil.ie",
       "cllrjcummins@waterfordcouncil.ie",
@@ -811,7 +740,6 @@
   },
   {
     "council_name": "Galway City Council",
-	"district": "",
     "emails": [
       "mjcrowe@cllr.galwaycity.ie",
       "mfarrell@cllr.galwaycity.ie",
@@ -834,7 +762,6 @@
   },
   {
     "council_name": "Galway County Council",
-	"district": "",
     "emails": [
       "jcharity@cllr.galwaycoco.ie",
       "gcronnelly@cllr.galwaycoco.ie",
@@ -878,7 +805,6 @@
   },
   {
     "council_name": "Leitrim County Council",
-	"district": "",
     "emails": [
       "sineadguckian@leitrimcoco.ie",
       "orourke_paddy@eircom.net",
@@ -904,7 +830,6 @@
   },
   {
     "council_name": "Mayo County Council",
-	"district": "",
     "emails": [
       "cruisersbar@gmail.com",
       "gginty@cllr.mayococo.ie",
@@ -940,7 +865,6 @@
   },
   {
     "council_name": "Roscommon County Council",
-	"district": "",
     "emails": [
       "ivanconnaughton14@gmail.com",
       "cllrlfallon@roscommoncoco.ie",
@@ -964,7 +888,6 @@
   },
   {
     "council_name": "Sligo County Council",
-	"district": "",
     "emails": [
       "cllrmbaker@gmail.com",
       "cllrmichaelclarke@eircom.net",
@@ -988,7 +911,6 @@
   },
   {
     "council_name": "Cavan County Council",
-	"district": "",
     "emails": [
       "carmelbrady@cavancoco.ie",
       "clifford.kelly34@gmail.com",
@@ -1011,7 +933,6 @@
   },
   {
     "council_name": "Donegal County Council",
-	"district": "",
     "emails": [
       "gerrycrawford@donegalcoco.ie",
       "garydoherty@donegalcoco.ie",
@@ -1054,7 +975,6 @@
   },
   {
     "council_name": "Monaghan County Council",
-	"district": "",
     "emails": [
       "sean.conlon@cllr.monaghancoco.ie",
       "paudge.connolly@cllr.monaghancoco.ie",
