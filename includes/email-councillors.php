@@ -49,6 +49,11 @@
 	$mundistricts = $item['district'];
 	print '<li>' . $item['council_name'] . '</li>';
 
+	//print '<ul><li><a href="mailto:';
+	foreach ($mundistricts as $district) {
+		print $district . ',';
+	}
+	
 	/*
 	for ($i=0; $i<count($mundistricts); $i++) {
 		print '<ul><li><a href="mailto:';
