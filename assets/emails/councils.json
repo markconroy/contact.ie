@@ -834,7 +834,56 @@
   },
   {
     "council_name": "Galway County Council",
-	"district": "",
+	"district": {
+		"Athenry-Oranmore": [
+		  "jcharity@cllr.galwaycoco.ie",
+		  "gcronnelly@cllr.galwaycoco.ie",
+		  "jcuddy@cllr.galwaycoco.ie",
+		  "pfeeney@cllr.galwaycoco.ie",
+		  "fkearney@cllr.galwaycoco.ie",
+		  "mkinane@cllr.galwaycoco.ie",
+		  "mnoone@cllr.galwaycoco.ie"	
+		],
+		"Ballinsloe": [
+		  "tbroderick@cllr.galwaycoco.ie",
+		  "dburke@cllr.galwaycoco.ie",
+		  "dconnolly@cllr.galwaycoco.ie",
+		  "mconnolly@cllr.galwaycoco.ie",
+		  "adonohue@cllr.galwaycoco.ie",
+		  "mfinnerty@cllr.galwaycoco.ie"	
+		],
+		"Conamara": [
+		  "nbyrne@cllr.galwaycoco.ie",
+		  "socualain@cllr.galwaycoco.ie",
+		  "tocurraoin@cllr.galwaycoco.ie",
+		  "thealy@cllr.galwaycoco.ie",
+		  "emannion@cllr.galwaycoco.ie",
+		  "nthomas@cllr.galwaycoco.ie",
+		  "sotuairisg@cllr.galwaycoco.ie",
+		  "swalsh@cllr.galwaycoco.ie",
+		  "twelby@cllr.galwaycoco.ie"	
+		],
+		"Loughrea": [
+		  "jbryne@cllr.galwaycoco.ie",
+		  "sdonnellan@cllr.galwaycoco.ie",
+		  "gfinnerty@cllr.galwaycoco.ie",
+		  "phynes@cllr.galwaycoco.ie",
+		  "mmaher@cllr.galwaycoco.ie",
+		  "jmcclearn@cllr.galwaycoco.ie",
+		  "icanning@cllr.galwaycoco.ie"		
+		],
+		"Tuam": [
+		  "scunniffe@cllr.galwaycoco.ie",
+		  "djoyce@cllr.galwaycoco.ie",
+		  "mhoade@cllr.galwaycoco.ie",
+		  "pkeaveney@cllr.galwaycoco.ie",
+		  "dkillilea@cllr.galwaycoco.ie",
+		  "kmchugh@cllr.galwaycoco.ie",
+		  "tmchugh@cllr.galwaycoco.ie",
+		  "bconnelly@cllr.galwaycoco.ie",
+		  "proche@cllr.galwaycoco.ie"		
+		]
+	},
     "emails": [
       "jcharity@cllr.galwaycoco.ie",
       "gcronnelly@cllr.galwaycoco.ie",
