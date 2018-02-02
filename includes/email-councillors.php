@@ -59,22 +59,6 @@
 		}
 	
 	}
-	
-    //foreach ($email_addresses as $email_address) {
-    //  print $email_address . ',';
-    //}
-    //print '?bcc=sent@contact.ie">Email All ' . $district . ' Councillors</a></li></ul>';
-	
-		
-	/*
-	for ($i=0; $i<count($mundistricts); $i++) {
-		print '<ul><li><a href="mailto:';
-		foreach ($mundistricts[$i] as $district) {
-			print $district . ',';
-		}
-		print '?bcc=sent@contact.ie">Email All ' . $mundistricts[$i] . ' Councillors</a></li>';
-	}
-   */
 
   }
  
