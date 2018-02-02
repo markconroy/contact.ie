@@ -40,14 +40,25 @@
 
     $email_addresses = $item['emails'];
 	$mundistricts = $item['district'];
-	print '<li>' . $item['council_name'] . '</li>';
-    print '<ul><li><a href="mailto:';
-	foreach ($mundistricts as $district => $emailAddr){
-		for ($i=0;$i<count($emailAddr);$i++){
-			print $emailAddr[$i] . ',';
+	
+	if ($mundistricts == "") {
+		foreach ($email_addresses as $email_address) {
+		  print $email_address . ',';
 		}
 		print '?bcc=sent@contact.ie">Email All ' . $district . ' Councillors</a></li></ul>';
+	
+	}else{
+		print '<li>' . $item['council_name'] . '</li>';
+		print '<ul><li><a href="mailto:';
+		foreach ($mundistricts as $district => $emailAddr){
+			for ($i=0;$i<count($emailAddr);$i++){
+				print $emailAddr[$i] . ',';
+			}
+			print '?bcc=sent@contact.ie">Email All ' . $district . ' Councillors</a></li></ul>';
+		}
+	
 	}
+	
     //foreach ($email_addresses as $email_address) {
     //  print $email_address . ',';
     //}
