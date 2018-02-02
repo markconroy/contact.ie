@@ -50,8 +50,8 @@
 	
 	}else{
 		print '<li>' . $item['council_name'] . '</li>';
-		print '<ul><li><a href="mailto:';
 		foreach ($mundistricts as $district => $emailAddr){
+			print '<ul><li><a href="mailto:';
 			for ($i=0;$i<count($emailAddr);$i++){
 				print $emailAddr[$i] . ',';
 			}
