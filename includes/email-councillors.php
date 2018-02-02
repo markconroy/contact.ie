@@ -39,25 +39,18 @@
   foreach ($items as $item) {
 
     $email_addresses = $item['emails'];
-    print '<li><a href="mailto:';
-    foreach ($email_addresses as $email_address) {
-      print $email_address . ',';
-    }
-    print '?bcc=sent@contact.ie">Email All ' . $item['council_name'] . ' Councillors</a></li>';
-	
-	
 	$mundistricts = $item['district'];
 	print '<li>' . $item['council_name'] . '</li>';
-
-	
-	for ($i=0;$i<count($mundistricts);$i++) {
-		print $mundistricts[$i];
+    print '<ul><li><a href="mailto:';
+	foreach ($mundistricts as $district => $email){
+		print $email . ',';
 	}
-	//print '<ul><li><a href="mailto:';
-	//foreach ($mundistricts as $district) {
-	//	print $district . ',';
-	//}
+    //foreach ($email_addresses as $email_address) {
+    //  print $email_address . ',';
+    //}
+    print '?bcc=sent@contact.ie">Email All ' . $district . ' Councillors</a></li></ul>';
 	
+		
 	/*
 	for ($i=0; $i<count($mundistricts); $i++) {
 		print '<ul><li><a href="mailto:';
