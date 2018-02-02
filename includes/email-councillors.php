@@ -41,7 +41,7 @@
     $email_addresses = $item['emails'];
 	$mundistricts = $item['district'];
 	
-	if ($mundistricts == "") {
+	if ($mundistricts === "") {
 		print '<li><a href="mailto:';
 		foreach ($email_addresses as $email_address) {
 		  print $email_address . ',';
