@@ -39,11 +39,28 @@
   foreach ($items as $item) {
 
     $email_addresses = $item['emails'];
-    print '<li><a href="mailto:';
-    foreach ($email_addresses as $email_address) {
-      print $email_address . ',';
-    }
-    print '?bcc=sent@contact.ie">Email All ' . $item['council_name'] . ' Councillors</a></li>';
+	$mundistricts = $item['district'];
+	
+	if ($mundistricts === "") {
+		print '<li><a href="mailto:';
+		foreach ($email_addresses as $email_address) {
+		  print $email_address . ',';
+		}
+		print '?bcc=sent@contact.ie">Email All ' . $item['council_name'] . ' Councillors</a></li>';
+	
+	}else{
+		print '<li>' . $item['council_name'] . '</li>';
+		foreach ($mundistricts as $district => $emailAddr){
+			print '<ul><li><a href="mailto:';
+			for ($i=0;$i<count($emailAddr);$i++){
+				print $emailAddr[$i] . ',';
+			}
+			print '?bcc=sent@contact.ie">Email All ' . $district . ' Councillors</a></li></ul>';
+		}
+	
+	}
+
   }
+ 
   ?>
 </ul>
