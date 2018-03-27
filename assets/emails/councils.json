@@ -24,8 +24,90 @@
     ]
   },
   {
-    "council_name": "NOT WORKING - Dublin City Council",
-	"district": "",
+    "council_name": "Dublin City Council",
+	"district": {
+		"Ballyfermot-Drimnagh":[
+			"hazel.denortuin@dublincity.ie",
+			"daithi.deroiste@dublincity.ie",
+			"daithi.doolan@dublincity.ie",
+			"phand@dublincity.ie",
+			"vincent.jackson@dublincity.ie",
+			"greg.kelly@dublincity.ie"
+		],
+		"Ballymun":[
+			"cathleen.boud@dublincity.ie",
+			"aine.clancy@dublincity.ie",
+			"andrew.keegan@dublincity.ie",
+			"paul@votemcauliffe.com",
+			"andrewmontague@me.com",
+			"noeleen.reilly@dublincity.ie",
+			"norma.sammon@dublincity.ie"
+		],
+		"Beaumont-Donaghmede":[
+			"pbourkecllr@eircom.net",
+			"tom.brabazon@dublincity.ie",
+			"declan.flanagan@dublincity.ie",
+			"alison.gilliland@dublincity.ie",
+			"john.lyons31@gmail.com",
+			"lordmayor@dublincity.ie",
+			"sadhbhm09@gmail.com",
+			"mobrien@dublincity.ie",
+			"larry.otoole@dublincity.ie"
+		],
+		"Cabra-Finglas":[
+			"brendan.carr@dublincity.ie",
+			"anthony.connaghan@dublincity.ie",
+			"david.costello@dublincity.ie",
+			"teresa.keegan@dublincity.ie",
+			"seamas.mcgrattan@dublincity.ie",
+			"emma.murphy@dublincity.ie",
+			"cieran.perry@dublincity.ie"
+		],
+		"Clontarf":[
+			"heneydm@gmail.com",
+			"horganjones.jane@gmail.com",
+			"seanpaul.mahon@dublincity.ie",
+			"naoise.omuiri@dublincity.ie",
+			"damianofarrell@gmail.com",
+			"ciaran.omoore@dublincity.ie"
+		],
+		"Crumlin-Kimmage":[
+			"pat.dunne1@dublincity.ie",
+			"tinymv@gmail.com",
+			"ray.mchugh@dublincity.ie",
+			"rebecca.moynihan@dublincity.ie",
+			"mulloolymichael@gmail.com",
+			"dcccedept@gmail.com"
+		],
+		"North Inner City":[
+			"janice.boylan@dublincity.ie",
+			"christy.burke@dublincity.ie",
+			"ciaran.cuffe@dublincity.ie",
+			"gaye.fagan@dublincity.ie",
+			"gary.gannon@socialdemocrats.ie",
+			"raymcadam@gmail.com",
+			"nialring@eircom.net",
+			"eilis.ryan@dublincity.ie"
+		],
+		"Pembroke-South Dock":[
+			"chris.andrews@dublincity.ie",
+			"kieran.binchy@dublincity.ie",
+			"claire.byrne@dublincity.ie",
+			"mannix.flynn@dublincity.ie",
+			"frank.kennedy@dublincity.ie",
+			"dermot.lacey@labour.ie",
+			"cllrpatmccartan@gmail.com",
+			"sonya.stapleton@dublincity.ie"
+		],
+		"Rathgar-Rathmines":[
+			"patrick.costello@dublincity.ie",
+			"anne.feeney@dublincity.ie",
+			"marycfreehill@gmail.com",
+			"ruairi.mcginley@dublincity.ie",
+			"claire.oconnor@dublincity.ie",
+			"paddy.smyth@dublincity.ie"
+		]
+	},
     "emails": ""
   },
   {
