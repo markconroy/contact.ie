@@ -1238,7 +1238,73 @@
   },
   {
     "council_name": "Cork County Council",
-	"district": "",
+	"district": {
+		"Ballincollig-Carrigaline":[
+			"derrycantyccc@gmail.com",
+			"jacwps@eircom.net",
+			"info@marciadalton.net",
+			"desmondmaryrose@gmail.com",
+			"info@deirdreforde.ie",
+			"mfmurphy@passagewestmonkstown.ie",
+			"joeharriscork@gmail.com",
+			"eoghan.jeffers@gmail.com",
+			"cllrseamusmcgrath@eircom.net",
+			"daithiod1@gmail.com"
+		],
+		"Bandon-Kinsale":[
+			"alancolemanccc@gmail.com",
+			"gillcoughlan@eircom.net",
+			"aidanlombard80@gmail.com",
+			"rmccarthytc@bandon.ie",
+			"kevinmurphyw@gmail.com",
+			"jamesodonovan87@gmail.com"
+		],
+		"Blarney-Macroom":[
+			"kevinbconway@gmail.com",
+			"michaelacreed@eircom.net",
+			"tedluceycc@eircom.net",
+			"desogradysf@gmail.com",
+			"bobryanelec@gmail.com"
+		],
+		"Cobh-Glanmire":[
+			"anthonybarry2014@gmail.com",
+			"gerkeohane68@gmail.com",
+			"cllrkieranmccarthysf@gmail.com",
+			"posullivan00@hotmail.com",
+			"rousemountcobh1@eircom.net",
+			"sinead.sheppard@gmail.com"
+		],
+		"East Cork":[
+			"michael.hegarty@corkcoco.ie",
+			"susan.finegael@outlook.ie",
+			"cllr.aaronosullivan@gmail.com",
+			"cllrdanielletwomey@gmail.com"
+		],
+		"Fermoy":[
+			"kaydawsonfinegael@gmail.com",
+			"iandoyle245@gmail.com",
+			"noelmccarthy28@hotmail.com",
+			"junesinnfein@yahoo.ie",
+			"frankoflynnccc@eircom.net"
+		],
+		"Kanturk-Mallow":[
+			"collinstimmy1@gmail.com",
+			"bernardmoynihan1@gmail.com",
+			"melissa.mullane@sinnfein.ie",
+			"gmurphycork@gmail.com",
+			"oshea_jp@hotmail.com",
+			"djfitzgeraldccc@eircom.net"
+		],
+		"West Cork":[
+			"carrolljoe@hotmail.com",
+			"paul.hayes@sinnfein.ie",
+			"mhegcas@eircom.net",
+			"declanj@eircom.net",
+			"patmurph@eircom.net",
+			"noel@noelodonovan.ie",
+			"christopherosullivan@eircom.net"
+		]
+	},
     "emails": [
       "tim.lombard@corkcoco.ie",
       "pmom@eircom.net",
