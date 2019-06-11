@@ -4,10 +4,12 @@
  */
 
 a {
-  color: $c-grey--darkest;
-  text-decoration: none;
+  text-decoration: underline;
+  color: $c-primary;
+  font-weight: bold;
   &:focus,
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: $c-grey--darkest;
   }
 }

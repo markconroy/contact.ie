@@ -119,10 +119,12 @@ but want the menu links 'contained' within the width of the content area. */
  * This file creates the styling for the a elements.
  */
 a {
-  color: #111111;
-  text-decoration: none; }
+  text-decoration: underline;
+  color: #CD4945;
+  font-weight: bold; }
   a:focus, a:hover {
-    text-decoration: underline; }
+    text-decoration: none;
+    color: #111111; }
 
 /**
  * @file
