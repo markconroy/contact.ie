@@ -45,12 +45,27 @@ $description = "Find the email address of any/all town or county councillor in I
     foreach ($items as $item) {
 
       $email_addresses = $item['emails'];
-      print $item['council_name'];
-      print '<ul>';
-      foreach ($email_addresses as $email_address) {
-        print '<li>' . $email_address . '</li>';
-      }
-      print '</ul>';
+	  $mundistricts = $item['district'];
+	  
+	  if ($mundistricts === "") {
+		  print $item['council_name'];
+		  print '<ul>';
+		  foreach ($email_addresses as $email_address) {
+			print '<li>' . $email_address . '</li>';
+		  }
+		  print '</ul>';
+	  }else{
+		  print '<h3>' . $item['council_name'] . '</h3><br>';
+		  foreach ($mundistricts as $district => $emailAddr) {
+			print $district;
+			print '<ul>';
+			for ($i=0;$i<count($emailAddr);$i++){
+				print '<li>' . $emailAddr[$i] . '</li>';
+			}
+			print '</ul>';
+		  }
+		  print '</ul>';	  
+	  }
     }
     ?>
   </ul>
