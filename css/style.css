@@ -4,7 +4,6 @@
  * @file
  * This file is used to get things started.
  */
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,700");
 html {
   box-sizing: border-box; }
 
@@ -147,7 +146,7 @@ body {
  * This file creates the styling for the h elements.
  */
 .heading {
-  font-family: Roboto, Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
   font-weight: 600; }
 
 h1,
@@ -157,7 +156,7 @@ h4,
 h5,
 h6 {
   color: #111111;
-  font-family: Roboto, Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
   font-weight: 600; }
   h1 a,
   h2 a,
@@ -229,7 +228,7 @@ h6, .zeta {
  * This file creates the styling for the html element.
  */
 html {
-  font-family: Roboto, Arial, Helvetica, "Nimbus Sans L", sans-serif;
+  font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
   font-size: 18px;
   font-weight: 300;
   line-height: 27px; }
